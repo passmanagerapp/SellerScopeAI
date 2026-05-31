@@ -1,0 +1,14 @@
+{
+  "name": "firebase-kotlin-sdk-firebase-common",
+  "version": "2.1.0",
+  "main": "firebase-kotlin-sdk-firebase-common.js",
+  "types": "firebase-kotlin-sdk-firebase-common.d.ts",
+  "devDependencies": {},
+  "dependencies": {
+    "firebase": "10.12.2",
+    "format-util": "^1.0.5"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}

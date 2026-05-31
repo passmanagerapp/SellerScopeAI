@@ -1,0 +1,1 @@
+{"appEntry":{"fqn":"com.orderpanel.AppEntry"},"frontendData":{"pages":[{"fqn":"com.orderpanel.pages.AboutPage","route":"/about"},{"fqn":"com.orderpanel.pages.AdminPage","route":"/admin"},{"fqn":"com.orderpanel.pages.HomePage","route":"/"},{"fqn":"com.orderpanel.pages.LoginPage","route":"/login"},{"fqn":"com.orderpanel.pages.SignupPage","route":"/signup"}]}}
