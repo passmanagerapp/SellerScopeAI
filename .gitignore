@@ -2,6 +2,7 @@
 build/
 .gradle/
 kotlin-js-store/
+.git-site-backup/
 
 # Kobweb server jar and logs
 site/.kobweb/server/server.jar
