@@ -1,0 +1,19 @@
+# Build artifacts
+build/
+.gradle/
+kotlin-js-store/
+
+# Kobweb server jar and logs
+site/.kobweb/server/server.jar
+site/.kobweb/server/logs/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+# OS
+.DS_Store
+
+# Local Firebase config
+site/src/jsMain/kotlin/com/orderpanel/firebase/FirebaseConfig.kt
