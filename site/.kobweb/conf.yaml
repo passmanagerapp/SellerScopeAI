@@ -1,0 +1,15 @@
+site:
+  title: "SellerScope | Order Management Dashboard"
+  description: "SellerScope — The powerful order management dashboard for growing businesses"
+  author: "@orderpanel"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/kotlin-webpack/js/developmentExecutable/orderpanel.js"
+    prod:
+      script: "build/kotlin-webpack/js/productionExecutable/orderpanel.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8081

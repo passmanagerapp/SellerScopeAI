@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Shared / About page -->
+    <string name="brand">SellerScope</string>
+    <string name="navHome">Ana Sayfa</string>
+    <string name="navAboutUs">Hakkımızda</string>
+    <string name="navLogin">Giriş Yap</string>
+    <string name="navGetStarted">Başla</string>
+
+    <string name="heroLabel">Hikayemiz</string>
+    <string name="heroHeadlinePre">Bir Etsy mağaza yöneticisi ve yazılım mühendisi tarafından, </string>
+    <string name="heroHeadlineHighlight">gerçek cevaplar isteyen satıcılar için</string>
+    <string name="heroBody">4 yıl boyunca bir Etsy mağazısında yazılım mühendisi olarak çalıştıktan sonra, dağınık sekmelerden gelir verilerini bir araya getirmekten yoruldum. SellerScope, var olmasını dilediğim araç — satışlarınızı anlamlandırarak büyümeye odaklanmanızı sağlamak için inşa edildi.</string>
+
+    <string name="stat1Value">4 yıl</string>
+    <string name="stat1Label">Etsy&apos; mağazasında yönetici</string>
+    <string name="stat2Value">Binlerce</string>
+    <string name="stat2Label">Analiz edilen sipariş</string>
+    <string name="stat3Value">%100</string>
+    <string name="stat3Label">Gerçek deneyimle inşa edildi</string>
+    <string name="stat4Value">&lt; 5 dk</string>
+    <string name="stat4Label">İlk içgörünüze ulaşma süresi</string>
+
+    <string name="missionLabel">Misyonumuz</string>
+    <string name="missionTitle">Rakamlarınızı bilin, dükkanınızı büyütün</string>
+    <string name="missionBody1Pre"></string>
+    <string name="missionBody1Highlight">Kıdemli bir yazılım geliştiricisiyim</string>
+    <string name="missionBody1Post"> ve 4 yıl boyunca asıl işimin yanında Etsy mağazımı yönettim. Her ay, temel soruları yanıtlamak için geliri, sipariş sayısını ve trendleri manuel olarak bir araya getirmekle zaman kaybediyordum. SellerScope bunu çözüyor.</string>
+    <string name="missionBody2">Bu, kendim için inşa ettiğim analitik panosu — ve işletmesini daha net görebilmeyi hak eden her Etsy satıcısıyla paylaşmaya karar verdim.</string>
+    <string name="feature1">Artık tablo karmaşası yok</string>
+    <string name="feature2">Satış ve gelir tek görünümde</string>
+    <string name="feature3">Özellikle Etsy satıcıları için inşa edildi</string>
+    <string name="feature4">Her cihazda çalışır</string>
+    <string name="feature5">Başlamak ücretsiz</string>
+
+    <string name="valuesLabel">Ne İnanıyoruz</string>
+    <string name="valuesTitle">Temel değerlerimiz</string>
+    <string name="value1Title">Satıcı önce</string>
+    <string name="value1Desc">Her özellik tek bir soruyla başlar: bu, bir satıcının işletmesini daha iyi anlamasına yardımcı oluyor mu?</string>
+    <string name="value2Title">Karmaşıklık değil, netlik</string>
+    <string name="value2Desc">Kendi gelirinizi okumak için bir veri analistine ihtiyacınız olmamalı. Açık değilse, yeniden tasarlanır.</string>
+    <string name="value3Title">Verileriniz sizindir</string>
+    <string name="value3Desc">Sipariş ve gelir verileriniz asla satılmaz, paylaşılmaz veya panelinizi güçlendirmek dışında başka amaçla kullanılmaz.</string>
+    <string name="value4Title">Gerçek deneyimden inşa edildi</string>
+    <string name="value4Desc">Bu araç, satıcıların neye ihtiyaç duyduğuna dair varsayımlarla değil, bir Etsy dükkanını gerçekten 4 yıl yöneterek şekillendirildi.</string>
+    <string name="value5Title">Sürekli gelişiyor</string>
+    <string name="value5Desc">Gerçek satıcı geri bildirimlerinden yola çıkarak yeni içgörüler ve özellikler düzenli olarak yayınlanmaktadır.</string>
+    <string name="value6Title">Sürpriz yok</string>
+    <string name="value6Desc">Gizli ücret yok, karanlık kalıplar yok. Ücretsiz, gerçekten ücretsiz demek.</string>
+
+    <string name="ctaTitle">Tahmin etmeyi bırakın. Bilmeye başlayın.</string>
+    <string name="ctaBody">Etsy satışlarınızı ve gelirinizi her zaman istediğiniz gibi net bir şekilde görün. Başlamak ücretsiz, kredi kartı gerekmez.</string>
+    <string name="ctaButton">Ücretsiz hesap oluştur →</string>
+
+    <string name="footerCopyright">© 2025 SellerScope. Tüm hakları saklıdır. · </string>
+    <string name="footerHome">Ana Sayfa</string>
+    <string name="footerLogin">Giriş Yap</string>
+    <string name="footerSignup">Kayıt Ol</string>
+
+    <!-- Index (landing) page -->
+    <string name="idxPageTitle">SellerScope — Sipariş Yönetim Paneli</string>
+    <string name="idxNavFeatures">Özellikler</string>
+    <string name="idxNavPricing">Fiyatlandırma</string>
+    <string name="idxNavFaq">SSS</string>
+
+    <string name="idxHeroBadgeNew">YENİ</string>
+    <string name="idxHeroBadgeText">Artık canlı kargo takibi &amp; analitiği var</string>
+    <string name="idxHeroHeadline1">İşletmenizin Hak Ettiği</string>
+    <string name="idxHeroHeadline2">Sipariş Paneli</string>
+    <string name="idxHeroSubtext">Siparişleri takip edin, kârları analiz edin, SKU ve kargoyu yönetin — büyüyen işletmeler için tasarlanmış tek bir güzel yönetim panelinde.</string>
+    <string name="idxHeroPrimaryBtn">Ücretsiz Deneyin →</string>
+    <string name="idxHeroSecondaryBtn">Canlı demo</string>
+    <string name="idxHeroTrustLine">Kredi kartı gerekmez  ·  14 günlük ücretsiz deneme  ·  İstediğiniz zaman iptal edin</string>
+
+    <string name="idxSocialProof1">500+ işletme</string>
+    <string name="idxSocialProof2">50.000+ yönetilen sipariş</string>
+    <string name="idxSocialProof3">4,9 ★ ortalama puan</string>
+    <string name="idxSocialProof4">%99,9 kesintisiz çalışma</string>
+
+    <string name="idxFeaturesLabel">İhtiyacınız olan her şey</string>
+    <string name="idxFeaturesTitle">Sipariş odaklı işletmeler için geliştirildi</string>
+    <string name="idxFeaturesSubtitle">Tek panel. Tüm siparişleriniz, kâr verileriniz ve kargonuz tek yerde — elektronik tablo gerekmez.</string>
+    <string name="idxFeat1Title">Sipariş Yönetimi</string>
+    <string name="idxFeat1Desc">Siparişleri gerçek zamanlı oluşturun, takip edin ve güncelleyin. Satır içi düzenleme ile tam düzenleme, kopyalama ve silme desteği.</string>
+    <string name="idxFeat2Title">Etkileşimli Analitik</string>
+    <string name="idxFeat2Desc">Kâr dağılımını, ülke bazlı dağılımı ve maliyet analizini gösteren güzel halka grafikler ve çubuk grafikler.</string>
+    <string name="idxFeat3Title">Kargo Takibi</string>
+    <string name="idxFeat3Desc">Her sipariş için entegre UPS takip bağlantıları. Her paketin her an nerede olduğunu tam olarak bilin.</string>
+    <string name="idxFeat4Title">Finansal Raporlar</string>
+    <string name="idxFeat4Desc">Brüt kâr, net kâr, kargo maliyeti, gümrük vergileri ve ürün maliyeti — sipariş ve ay bazında otomatik hesaplanır.</string>
+    <string name="idxFeat5Title">Akıllı Arama &amp; Filtreler</string>
+    <string name="idxFeat5Desc">Duruma göre filtreleyin, ada göre arayın, tarihe veya gelire göre sıralayın. Herhangi bir siparişi saniyeler içinde bulun.</string>
+    <string name="idxFeat6Title">SKU Yönetimi</string>
+    <string name="idxFeat6Desc">SKU başına ürün maliyetlerini yapılandırın. Yeni bir siparişte SKU seçtiğinizde panel ürün maliyetini otomatik doldurur.</string>
+
+    <string name="idxPricingLabel">Fiyatlandırma</string>
+    <string name="idxPricingTitle">Basit, şeffaf fiyatlandırma</string>
+    <string name="idxPricingSubtitle">Ücretsiz başlayın. Büyüdükçe ölçeklendirin. Gizli ücret yok.</string>
+    <string name="idxPricingAnnualNote">💡 Yıllık ödemede %20 tasarruf edin — </string>
+    <string name="idxPricingAnnualLink">bize ulaşın</string>
+
+    <string name="idxPlan1Name">Başlangıç</string>
+    <string name="idxPlan1Price">$0</string>
+    <string name="idxPlan1Period">/ ay</string>
+    <string name="idxPlan1Desc">Yeni başlayan serbest çalışanlar ve bireysel satıcılar için mükemmel.</string>
+    <string name="idxPlan1Feat1">Aylık 30 siparişe kadar</string>
+    <string name="idxPlan1Feat2">Temel analitik panosu</string>
+    <string name="idxPlan1Feat3">Manuel sipariş girişi</string>
+    <string name="idxPlan1Feat4">1 kullanıcı</string>
+    <string name="idxPlan1Feat5">E-posta desteği</string>
+    <string name="idxPlan1Cta">Ücretsiz Başla</string>
+
+    <string name="idxPlan2Name">Pro</string>
+    <string name="idxPlan2Price">$29</string>
+    <string name="idxPlan2Period">/ ay</string>
+    <string name="idxPlan2Desc">Ciddi bir sipariş operasyonu yürütmek için ihtiyacınız olan her şey.</string>
+    <string name="idxPlan2Feat1">Sınırsız sipariş</string>
+    <string name="idxPlan2Feat2">Tam analitik &amp; kâr raporları</string>
+    <string name="idxPlan2Feat3">Kargo maliyeti &amp; gümrük takibi</string>
+    <string name="idxPlan2Feat4">SKU ürün maliyet yönetimi</string>
+    <string name="idxPlan2Feat5">UPS takip entegrasyonu</string>
+    <string name="idxPlan2Feat6">Akıllı arama &amp; filtreler</string>
+    <string name="idxPlan2Feat7">3 kullanıcıya kadar</string>
+    <string name="idxPlan2Feat8">Öncelikli e-posta desteği</string>
+    <string name="idxPlan2Cta">14 günlük denemeyi başlat</string>
+    <string name="idxPlan2Badge">En Popüler</string>
+
+    <string name="idxPlan3Name">Ekip</string>
+    <string name="idxPlan3Price">$79</string>
+    <string name="idxPlan3Period">/ ay</string>
+    <string name="idxPlan3Desc">Birden fazla mağazayı veya yüksek sipariş hacmini yöneten ekipler için.</string>
+    <string name="idxPlan3Feat1">Pro&apos;daki her şey</string>
+    <string name="idxPlan3Feat2">Sınırsız kullanıcı</string>
+    <string name="idxPlan3Feat3">Çoklu mağaza desteği</string>
+    <string name="idxPlan3Feat4">Özel marka</string>
+    <string name="idxPlan3Feat5">API erişimi</string>
+    <string name="idxPlan3Feat6">Özel Slack desteği</string>
+    <string name="idxPlan3Feat7">Onboarding seansı</string>
+    <string name="idxPlan3Cta">Satış ekibiyle iletişime geçin</string>
+
+    <string name="idxFaqLabel">SSS</string>
+    <string name="idxFaqTitle">Sık sorulan sorular</string>
+    <string name="idxFaqSubtitle">Aradığınızı bulamadınız mı? hello@sellerscope.io adresinden bize yazın</string>
+    <string name="idxFaq1Q">Ücretsiz deneme nasıl çalışır?</string>
+    <string name="idxFaq1A">14 gün boyunca Pro plana tam erişim elde edersiniz — kredi kartı gerekmez. Deneme süresinin sonunda bir plan seçebilir veya ücretsiz Başlangıç katmanında kalabilirsiniz.</string>
+    <string name="idxFaq2Q">Mevcut siparişlerimi içe aktarabilir miyim?</string>
+    <string name="idxFaq2A">Evet. Mevcut sipariş geçmişinizi dakikalar içinde taşıyabilmeniz için bir CSV içe aktarma aracı sunuyoruz.</string>
+    <string name="idxFaq3Q">Verilerim güvende mi?</string>
+    <string name="idxFaq3A">Tüm veriler, endüstri standardı şifrelemeyle Firebase Firestore&apos;da saklanır. Verilerinizi asla üçüncü taraflarla paylaşmıyor veya satmıyoruz.</string>
+    <string name="idxFaq4Q">Kurulum için teknik bilgiye ihtiyaç var mı?</string>
+    <string name="idxFaq4A">Hiç gerekmiyor. SellerScope tamamen barındırılan bir web uygulamasıdır — sadece hesap oluşturun ve sipariş eklemeye başlayın. Sunucu veya kurulum gerekmez.</string>
+    <string name="idxFaq5Q">İstediğim zaman iptal edebilir miyim?</string>
+    <string name="idxFaq5A">Kesinlikle. Aboneliğinizi hesap ayarlarından istediğiniz zaman iptal edebilirsiniz. Fatura döneminin sonuna kadar erişiminiz devam eder.</string>
+    <string name="idxFaq6Q">Büyük ekipler için özel planlar sunuyor musunuz?</string>
+    <string name="idxFaq6A">Evet — hello@sellerscope.io adresinden bizimle iletişime geçin; sipariş hacminize ve ekip büyüklüğünüze göre özel bir teklif hazırlayalım.</string>
+
+    <string name="idxCtaTitle">Siparişlerinizin kontrolünü ele almaya hazır mısınız?</string>
+    <string name="idxCtaBody">SellerScope&apos;u zaten kullanan 500+ işletmeye katılın.</string>
+    <string name="idxCtaBtn">Ücretsiz Başla →</string>
+
+    <string name="idxFooterTagline">Büyüyen e-ticaret işletmeleri için geliştirilmiş sipariş yönetim panosu. Siparişleri, kârları ve kargoyu tek yerde takip edin.</string>
+    <string name="idxFooterGroupProduct">Ürün</string>
+    <string name="idxFooterProd1">Özellikler</string>
+    <string name="idxFooterProd2">Fiyatlandırma</string>
+    <string name="idxFooterProd3">SSS</string>
+    <string name="idxFooterProd4">Değişiklik Günlüğü</string>
+    <string name="idxFooterGroupCompany">Şirket</string>
+    <string name="idxFooterComp1">Hakkımızda</string>
+    <string name="idxFooterComp2">Blog</string>
+    <string name="idxFooterComp3">Kariyer</string>
+    <string name="idxFooterComp4">İletişim</string>
+    <string name="idxFooterGroupLegal">Yasal</string>
+    <string name="idxFooterLegal1">Gizlilik Politikası</string>
+    <string name="idxFooterLegal2">Hizmet Koşulları</string>
+    <string name="idxFooterLegal3">Çerez Politikası</string>
+    <string name="idxFooterCopyright">© 2025 SellerScope. Tüm hakları saklıdır.</string>
+    <string name="idxFooterTwitter">Twitter</string>
+    <string name="idxFooterGithub">GitHub</string>
+    <string name="idxFooterLinkedin">LinkedIn</string>
+
+    <!-- Login page -->
+    <string name="logHeading">Tekrar hoşgeldiniz</string>
+    <string name="logSubtext">SellerScope hesabınıza giriş yapın</string>
+    <string name="logGoogleBtn">Google ile devam edin</string>
+    <string name="logDivider">veya e-posta ile devam edin</string>
+    <string name="logEmailLabel">E-posta adresi</string>
+    <string name="logEmailPlaceholder">siz@ornek.com</string>
+    <string name="logPasswordLabel">Şifre</string>
+    <string name="logPasswordPlaceholder">••••••••</string>
+    <string name="logForgot">Şifremi unuttum?</string>
+    <string name="logSubmit">Giriş Yap</string>
+    <string name="logSubmitLoading">Giriş yapılıyor…</string>
+    <string name="logNoAccount">Hesabınız yok mu?</string>
+    <string name="logSignupLink">Ücretsiz oluşturun</string>
+    <string name="logValidationEmailPassword">Lütfen e-posta adresinizi ve şifrenizi girin</string>
+
+    <!-- Signup page -->
+    <string name="sigFreePlanBadge">✓  Ücretsiz plan — kredi kartı gerekmez</string>
+    <string name="sigHeading">Hesabınızı oluşturun</string>
+    <string name="sigSubtext">Dakikalar içinde sipariş yönetmeye başlayın.</string>
+    <string name="sigGoogleBtn">Google ile kayıt olun</string>
+    <string name="sigDivider">veya e-posta ile</string>
+    <string name="sigNameLabel">Ad Soyad</string>
+    <string name="sigNamePlaceholder">Ahmet Yılmaz</string>
+    <string name="sigEmailLabel">E-posta adresi</string>
+    <string name="sigEmailPlaceholder">siz@ornek.com</string>
+    <string name="sigPasswordLabel">Şifre</string>
+    <string name="sigPasswordPlaceholder">En az 6 karakter</string>
+    <string name="sigConfirmLabel">Şifreyi onayla</string>
+    <string name="sigConfirmPlaceholder">••••••••</string>
+    <string name="sigSubmit">Ücretsiz hesap oluştur</string>
+    <string name="sigSubmitLoading">Hesap oluşturuluyor…</string>
+    <string name="sigTermsPre">Kayıt olarak </string>
+    <string name="sigTermsLink">Hizmet Koşulları</string>
+    <string name="sigTermsAnd"> ve </string>
+    <string name="sigPrivacyLink">Gizlilik Politikası</string>
+    <string name="sigTermsPost">&apos;nı kabul etmiş olursunuz.</string>
+    <string name="sigHasAccount">Zaten hesabınız var mı?</string>
+    <string name="sigLoginLink">Giriş yapın</string>
+    <string name="sigValidationFillAll">Lütfen tüm alanları doldurun</string>
+    <string name="sigValidationPasswordMatch">Şifreler eşleşmiyor</string>
+    <string name="sigValidationPasswordLength">Şifre en az 6 karakter olmalıdır</string>
+
+    <!-- Admin page -->
+    <string name="admPageTitle">Panel — SellerScope</string>
+    <string name="admTopbarOrders">Siparişler</string>
+    <string name="admTopbarAllMonths">Tüm aylar</string>
+    <string name="admTopbarSignOut">Çıkış Yap</string>
+    <string name="admNavLabel">Navigasyon</string>
+    <string name="admNavOrders">Siparişler</string>
+    <string name="admNavShipment">Kargo</string>
+    <string name="admNavHistory">Geçmiş Veriler</string>
+    <string name="admNavAppInfo">Uygulama Bilgisi</string>
+    <string name="admNavLoss">Zarar</string>
+    <string name="admLossTitle">Zarar</string>
+    <string name="admLossSubtitle">Herhangi bir finansal zararı nedeni, maliyeti ve tarihi ile kaydedin.</string>
+    <string name="admLossAddSection">Zarar Ekle</string>
+    <string name="admLossReason">Neden</string>
+    <string name="admLossCustomerName">Müşteri Adı</string>
+    <string name="admLossSku">SKU</string>
+    <string name="admLossCost">Maliyet ($)</string>
+    <string name="admLossDate">Tarih</string>
+    <string name="admLossRecordBtn">Zararı Kaydet</string>
+    <string name="admLossRecording">Kaydediliyor…</string>
+    <string name="admLossTableSection">Kaydedilen Zararlar</string>
+    <string name="admLossColDate">Tarih</string>
+    <string name="admLossColReason">Neden</string>
+    <string name="admLossColName">Ad</string>
+    <string name="admLossColSku">SKU</string>
+    <string name="admLossColCost">Maliyet ($)</string>
+    <string name="admLossDeleteBtn">Sil</string>
+    <string name="admLossEmpty">Henüz zarar kaydedilmedi.</string>
+    <string name="admLossReasonRefund">İade</string>
+    <string name="admLossReasonReplacement">Yenileme</string>
+    <string name="admLossReasonDamage">Hasar</string>
+    <string name="admLossReasonOther">Diğer</string>
+
+    <string name="admDeleteTitle">Sipariş silinsin mi?</string>
+    <string name="admDeleteBody">Bu işlem geri alınamaz.</string>
+    <string name="admDeleteCancel">İptal</string>
+    <string name="admDeleteConfirm">Sil</string>
+
+    <string name="admClearAllTitle">Tüm siparişler silinsin mi?</string>
+    <string name="admClearAllBodyPre">Bu işlem tüm </string>
+    <string name="admClearAllBodyPost"> siparişi kalıcı olarak silecek. Bu işlem geri alınamaz.</string>
+    <string name="admClearAllCancel">İptal</string>
+    <string name="admClearAllConfirm">Tümünü Temizle</string>
+    <string name="admClearAllDeleting">Siliniyor…</string>
+
+    <string name="admCsvOverlayTitle">CSV içe aktarılıyor…</string>
+    <string name="admCsvOverlayBody">Siparişler kaydediliyor. Lütfen bekleyin.</string>
+    <string name="admImportBtn">CSV İçe Aktar</string>
+    <string name="admImportingBtn">İçe aktarılıyor…</string>
+    <string name="admNewOrderBtn">+ Yeni Sipariş</string>
+    <string name="admCancelFormBtn">✕  İptal</string>
+
+    <string name="admFormHeader">Yeni Sipariş Girişi</string>
+    <string name="admFormSectionOrder">Sipariş Bilgileri</string>
+    <string name="admFormSectionFinancials">Finansal Bilgiler</string>
+    <string name="admFormFieldOrderDate">Sipariş Tarihi *</string>
+    <string name="admFormFieldQty">Miktar</string>
+    <string name="admFormFieldStatus">Durum</string>
+    <string name="admFormFieldReceiverName">Alıcı Adı *</string>
+    <string name="admFormFieldTrackingNumber">Takip Numarası</string>
+    <string name="admFormFieldShippingDate">Kargo Tarihi</string>
+    <string name="admFormFieldSku">SKU — ürün maliyetini otomatik doldurur</string>
+    <string name="admFormFieldCountry">Ülke</string>
+    <string name="admFormFieldCustomValue">Gümrük Değeri ($)</string>
+    <string name="admFormFieldProfit">Kâr ($)</string>
+    <string name="admFormFieldShipCost">Kargo Maliyeti ($)</string>
+    <string name="admFormFieldProdCost">Ürün Maliyeti ($)</string>
+    <string name="admFormFieldTariffUS">Gümrük Vergisi ($) — otomatik, gümrük değerinin %10&apos;u</string>
+    <string name="admFormFieldTariffN
+    onUS">Gümrük Vergisi ($) — otomatik, her zaman $0</string>
+    <string name="admFormNetProfitLabel">NET KÂR (otomatik hesaplanır)</string>
+    <string name="admFormSaveBtn">Siparişi Kaydet</string>
+    <string name="admFormSavingBtn">Kaydediliyor…</string>
+    <string name="admFormErrorRequired">Sipariş Tarihi ve Alıcı Adı zorunludur.</string>
+    <string name="admFormErrorDate">Lütfen geçerli bir Sipariş Tarihi seçin.</string>
+    <string name="admFormSelectSkuPlaceholder">— SKU Seçin —</string>
+
+    <string name="admStatusAll">Tümü</string>
+    <string name="admStatusProcessing">İşleniyor</string>
+    <string name="admStatusShipped">Kargolandı</string>
+    <string name="admStatusDelivered">Teslim Edildi</string>
+
+    <string name="admSortBy">Sırala</string>
+    <string name="admSortDateDesc">Tarih ↓ (en yeni)</string>
+    <string name="admSortDateAsc">Tarih ↑ (en eski)</string>
+    <string name="admSortRevenue">Net Kâr ↓</string>
+    <string name="admSearchPlaceholder">Alıcı adı ara…</string>
+    <string name="admDateFrom">Başlangıç</string>
+    <string name="admDateTo">Bitiş</string>
+
+    <string name="admStatTotalOrders">Toplam Sipariş</string>
+    <string name="admStatDelivered">Teslim Edildi</string>
+    <string name="admStatInTransit">Yolda</string>
+    <string name="admStatProcessing">İşleniyor</string>
+    <string name="admStatGrossProfit">Brüt Kâr</string>
+    <string name="admStatNetProfit">Net Kâr</string>
+    <string name="admStatShippingAds">Kargo / Reklam</string>
+    <string name="admStatTariffProdCost">Gümrük / Ürün Maliyeti</string>
+
+    <string name="admTableDate">Tarih</string>
+    <string name="admTableQty">Adet</string>
+    <string name="admTableReceiver">Alıcı</string>
+    <string name="admTableSku">SKU</string>
+    <string name="admTableTracking">Takip</string>
+    <string name="admTableShipDate">Kargo Tarihi</string>
+    <string name="admTableCountry">Ülke</string>
+    <string name="admTableStatus">Durum</string>
+    <string name="admTableProfit">Kâr</string>
+    <string name="admTableShipCost">Kargo</string>
+    <string name="admTableTariff">Gümrük</string>
+    <string name="admTableProdCost">Ürün Mlt.</string>
+    <string name="admTableNetProfit">Net Kâr</string>
+
+    <string name="admAllOrders">Tüm Siparişler</string>
+    <string name="admNoOrdersTitle">Henüz sipariş yok</string>
+    <string name="admNoOrdersBodyPrefix">İlk siparişinizi eklemek için &quot;+ Yeni Sipariş&quot; butonuna tıklayın —</string>
+    <string name="admLoadingOrders">Siparişler Firestore&apos;dan yükleniyor…</string>
+    <string name="admNoMatchFilters">Filtrelerinizle eşleşen sipariş yok.</string>
+    <string name="admClearAll">Tümünü Temizle</string>
+    <string name="admRecordsOf">/</string>
+    <string name="admRecords">kayıt</string>
+
+    <string name="admEditTooltip">Düzenle</string>
+    <string name="admCloneTooltip">Kopyala</string>
+    <string name="admDeleteTooltip">Sil</string>
+    <string name="admSaveEdit">Kaydet</string>
+    <string name="admCancelEdit">İptal</string>
+
+    <string name="admOrdersUnit">sipariş</string>
+    <string name="admItemsUnit">ürün</string>
+
+    <string name="admAppInfoTitle">Uygulama Bilgisi</string>
+    <string name="admShopProfileSection">Mağaza Profili</string>
+    <string name="admLogoSaved">✓ Logo kaydedildi</string>
+    <string name="admChangeLogo">Logoyu Değiştir</string>
+    <string name="admNoLogo">Logo yok — yüklemek için kutuya tıklayın</string>
+    <string name="admUploading">Yükleniyor…</string>
+    <string name="admShopNamePlaceholder">Mağaza adınızı girin</string>
+    <string name="admSaveNameBtn">Adı Kaydet</string>
+    <string name="admSavingNameBtn">Kaydediliyor…</string>
+    <string name="admSkuSection">SKU Ürün Maliyetleri</string>
+    <string name="admSkuPlaceholder">SKU adı (örn. B1)</string>
+    <string name="admSkuCostPlaceholder">Maliyet $</string>
+    <string name="admEstDelivery">Tahmini teslimat</string>
+    <string name="admAddSkuBtn">+ SKU Ekle</string>
+    <string name="admAddSkuSavingBtn">Kaydediliyor…</string>
+    <string name="admSkuErrorEmpty">SKU adı girin</string>
+    <string name="admSkuErrorInvalidCost">Geçerli bir maliyet girin (örn. 4.50)</string>
+    <string name="admSkuErrorNegative">Maliyet negatif olamaz</string>
+    <string name="admNoSkus">Henüz SKU yok. Yukarıdan ekleyin.</string>
+    <string name="admDayUnit">gün</string>
+    <string name="admDaysUnit">gün</string>
+    <string name="admDeliveryLabel">teslimat</string>
+
+    <string name="admShipmentsTitle">Kargolar</string>
+    <string name="admShipmentsSubtext">SKU bazında tahmini teslimat tarihine göre takip edilen siparişler</string>
+    <string name="admShipOverdue">Gecikmiş</string>
+    <string name="admShipEarly">Erken Kargolandı</string>
+    <string name="admShipOnTime">Zamanında Kargolandı</string>
+    <string name="admShipPending">Beklemede</string>
+    <string name="admShipNoConfig">Yapılandırma Yok</string>
+    <string name="admShipSectionOverdue">Kargo Süresi Geçti</string>
+    <string name="admShipSectionEarly">Erken Kargolandı</string>
+    <string name="admShipSectionOnTime">Zamanında Kargolandı</string>
+    <string name="admShipSectionPending">Kargo Bekliyor</string>
+    <string name="admShipSectionNoConfig">Teslimat Günü Yapılandırılmamış</string>
+    <string name="admShipNoConfigNote">Bu siparişler kategorize edilemiyor. Uygulama Bilgisi → SKU Yapılandırması bölümünden SKU&apos;lar için teslimat günü belirleyin.</string>
+    <string name="admShipNoOrders">Sipariş bulunamadı. Siparişler sekmesinden sipariş ekleyin.</string>
+    <string name="admShipNoDeliveryConfig">Teslimat günü yapılandırılmamış. Uygulama Bilgisi bölümünden SKU başına tahmini teslimat günü belirleyin.</string>
+    <string name="admShipTableName">Ad</string>
+    <string name="admShipTableSku">SKU</string>
+    <string name="admShipTableOrderDate">Sipariş Tarihi</string>
+    <string name="admShipTableShipped">Kargolandı</string>
+    <string name="admShipTableEstDeadline">Tahmini Son Tarih</string>
+    <string name="admShipTableStatus">Durum</string>
+    <string name="admShipTableDaysEarly">Erken Gün</string>
+    <string name="admShipTableDaysLeft">Kalan Gün</string>
+    <string name="admShipLate">gecikmiş</string>
+    <string name="admShipNotShipped">kargo yok</string>
+    <string name="admShipEarlyAdj">erken</string>
+    <string name="admShipLeftAdj">kaldı</string>
+
+    <string name="admDistributionTitle">Dağılım</string>
+    <string name="admDistributionPct">% dağılım</string>
+    <string name="admDistMonthly">Bu Ay</string>
+    <string name="admDistYearly">Bu Yıl</string>
+    <string name="admDistCostBreakdown">Maliyet Dağılımı</string>
+    <string name="admDistCountry">Ülkeye Göre Siparişler</string>
+    <string name="admDistSku">SKU&apos;ya Göre Siparişler</string>
+    <string name="admDistTotal">Toplam</string>
+    <string name="admDistNoSkuData">Bu dönem için SKU verisi yok.</string>
+
+    <string name="admAnalyticsTitle">Analitik</string>
+    <string name="admAnalyticsInsights">ay içgörüleri</string>
+    <string name="admAnalyticsTopRevSku">En Yüksek Gelirli SKU</string>
+    <string name="admAnalyticsBestNetSku">En İyi Net Kâr SKU</string>
+    <string name="admAnalyticsMostOrdered">En Çok Sipariş Edilen SKU</string>
+    <string name="admAnalyticsBestCountry">En İyi Ülke</string>
+    <string name="admAnalyticsAvgNet">Sipariş Başına Ort. Net</string>
+    <string name="admAnalyticsDelivRate">Teslimat Oranı</string>
+    <string name="admAnalyticsHighestGross">en yüksek brüt</string>
+    <string name="admAnalyticsAfterAllCosts">tüm maliyetler sonrası</string>
+    <string name="admAnalyticsOfMonthVol">aylık hacmin</string>
+    <string name="admAnalyticsNetProfitMonth">bu ayki net kâr</string>
+    <string name="admAnalyticsOrdersThisMonth">bu ayki siparişler</string>
+    <string name="admAnalyticsAvgNetDesc">sipariş başına ortalama net kâr</string>
+    <string name="admAnalyticsFulfillRate">teslim oranı</string>
+    <string name="admAnalyticsOrders">sipariş</string>
+
+    <string name="admYearlyBreakdownTitle">Yıllık Gelir Dağılımı</string>
+    <string name="admYearlyBreakdownSub">toplamın %&apos;si</string>
+    <string name="admYearlyRevenue">Gelir</string>
+    <string name="admYearlyNetProfit">Net Kâr</string>
+    <string name="admYearlyShipping">Kargo</string>
+    <string name="admYearlyAds">Reklam</string>
+    <string name="admYearlyProdCost">Ürün Maliyeti</string>
+    <string name="admYearlyTariff">Tarife</string>
+    <string name="admMonthlyTitle">Aylık Siparişler</string>
+    <string name="admMonthlyLast12">son 12 ay</string>
+
+    <string name="admHistTitle">Geçmiş Veri Girişi</string>
+    <string name="admHistSubtext">Eski Excel kayıtlarınızı aylık özetler olarak girin — ayda bir kez.</string>
+    <string name="admHistSelectMonth">AY SEÇİN</string>
+    <string name="admHistRecordExists">✓ Kayıt mevcut</string>
+    <string name="admHistMonthlySummary">AYLIK ÖZET</string>
+    <string name="admHistOrdersByCountry">ÜLKEYE GÖRE SİPARİŞLER</string>
+    <string name="admHistOrdersBySku">SKU&apos;YA GÖRE SİPARİŞLER</string>
+    <string name="admHistNetIncomeAuto">NET GELİR (OTOMATİK)</string>
+    <string name="admHistOrderCount">Sipariş Sayısı</string>
+    <string name="admHistTotalShipCost">Toplam Kargo Maliyeti</string>
+    <string name="admHistTotalTariff">Toplam Gümrük Maliyeti</string>
+    <string name="admHistTotalAdExpense">Toplam Reklam Gideri</string>
+    <string name="admHistTotalProdCost">Toplam Ürün Maliyeti</string>
+    <string name="admHistCrossFit">Cross Fit</string>
+    <string name="admHistSave">Kaydet</string>
+    <string name="admHistUpdate">Güncelle</string>
+    <string name="admHistSaving">Kaydediliyor…</string>
+    <string name="admHistDelete">Sil</string>
+    <string name="admHistDeleting">Siliniyor…</string>
+    <string name="admHistSavedSuffix">kaydedildi</string>
+    <string name="admHistSavedMonths">KAYDEDİLEN AYLAR</string>
+    <string name="admHistTableMonth">Ay</string>
+    <string name="admHistTableOrders">Siparişler</string>
+    <string name="admHistTableShipping">Kargo ($)</string>
+    <string name="admHistTableTariff">Gümrük ($)</string>
+    <string name="admHistTableAds">Reklam ($)</string>
+    <string name="admHistTableNetIncome">Net Gelir ($)</string>
+    <string name="admHistTableProdCost">Ürün Maliyeti ($)</string>
+    <string name="admHistTableCrossFit">Cross Fit</string>
+    <string name="admHistDeleteConfirmPre"></string>
+    <string name="admHistDeleteConfirmPost"> verilerini silmek istediğinizden emin misiniz?</string>
+    <string name="admHistDeleted">Silindi</string>
+
+    <!-- Error / status feedback -->
+    <string name="admErrDeleteOrder">Sipariş silinemedi: </string>
+    <string name="admErrClearOrders">Siparişler temizlenemedi: </string>
+    <string name="admErrSaveFailed">Kayıt başarısız: </string>
+    <string name="admErrUpdateOrder">Güncelleme başarısız: </string>
+    <string name="admErrLogoUpload">Yükleme başarısız: </string>
+    <string name="admErrGeneric">Hata: </string>
+    <string name="admSavedMsg">Kaydedildi</string>
+    <string name="admLogoSavedMsg">Logo kaydedildi!</string>
+
+    <!-- CSV import messages -->
+    <string name="admCsvErrEmpty">CSV boş veya veri satırı içermiyor</string>
+    <string name="admCsvErrMissingCols">Eksik sütunlar: </string>
+    <string name="admCsvErrNoValid">Geçerli satır bulunamadı</string>
+    <string name="admCsvSkipped">atlandı</string>
+    <string name="admCsvImported">İçe aktarıldı</string>
+
+    <!-- Form / edit placeholders -->
+    <string name="admFormPlaceholderFullName">Tam ad</string>
+    <string name="admFormPlaceholderTracking">örn. TK123456789</string>
+    <string name="admFormPlaceholderCustomValue">Gümrük beyan değeri</string>
+    <string name="admEditPlaceholderTracking">Takip numarası</string>
+
+    <!-- Misc UI -->
+    <string name="admLogoUploadBtn">Yükle</string>
+    <string name="admShopNameNotSet">Mağaza adı belirtilmedi</string>
+    <string name="admSkusCountLabel">SKU</string>
+    <string name="admLossTotal">Toplam</string>
+    <string name="admFsInFirestore">Firestore&apos;da</string>
+    <string name="admFsFailedDecode">çözümlenemedi</string>
+
+    <!-- Month names -->
+    <string name="monthJanuary">Ocak</string>
+    <string name="monthFebruary">Şubat</string>
+    <string name="monthMarch">Mart</string>
+    <string name="monthApril">Nisan</string>
+    <string name="monthMay">Mayıs</string>
+    <string name="monthJune">Haziran</string>
+    <string name="monthJuly">Temmuz</string>
+    <string name="monthAugust">Ağustos</string>
+    <string name="monthSeptember">Eylül</string>
+    <string name="monthOctober">Ekim</string>
+    <string name="monthNovember">Kasım</string>
+    <string name="monthDecember">Aralık</string>
+    <string name="monthShortJan">Oca</string>
+    <string name="monthShortFeb">Şub</string>
+    <string name="monthShortMar">Mar</string>
+    <string name="monthShortApr">Nis</string>
+    <string name="monthShortMay">May</string>
+    <string name="monthShortJun">Haz</string>
+    <string name="monthShortJul">Tem</string>
+    <string name="monthShortAug">Ağu</string>
+    <string name="monthShortSep">Eyl</string>
+    <string name="monthShortOct">Eki</string>
+    <string name="monthShortNov">Kas</string>
+    <string name="monthShortDec">Ara</string>
+</resources>
