@@ -21,12 +21,29 @@ fun AppEntry(content: @Composable () -> Unit) {
     remember { initFirebase() }
 
     LaunchedEffect(Unit) {
-        // Global CSS: smooth scroll + Inter font
+        // Load Gelasio from Google Fonts
+        val preconnect1 = document.createElement("link")
+        preconnect1.asDynamic().rel  = "preconnect"
+        preconnect1.asDynamic().href = "https://fonts.googleapis.com"
+        document.head?.appendChild(preconnect1)
+
+        val preconnect2 = document.createElement("link")
+        preconnect2.asDynamic().rel          = "preconnect"
+        preconnect2.asDynamic().href         = "https://fonts.gstatic.com"
+        preconnect2.asDynamic().crossOrigin  = ""
+        document.head?.appendChild(preconnect2)
+
+        val fontLink = document.createElement("link")
+        fontLink.asDynamic().rel  = "stylesheet"
+        fontLink.asDynamic().href = "https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+        document.head?.appendChild(fontLink)
+
+        // Global CSS: smooth scroll + Gelasio font
         val style = document.createElement("style")
         style.textContent = """
             *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
             html { scroll-behavior: smooth; }
-            body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+            body { font-family: 'Gelasio', Georgia, serif; }
             a { text-decoration: none; color: inherit; }
 
             @keyframes fadeInUp {

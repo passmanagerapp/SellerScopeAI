@@ -8,15 +8,15 @@ import kotlinx.browser.document
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 
-private const val ABG       = "#0a0916"
-private const val ASURFACE  = "#14132b"
-private const val ASURFACE2 = "#1a1930"
-private const val ABORDER   = "rgba(99,102,241,0.22)"
-private const val ATEXT     = "#e8e5ff"
-private const val ASUB      = "#8b84c4"
-private const val AACCENT   = "#6366f1"
-private const val AACCENT2  = "#7c3aed"
-private const val AGRAD     = "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)"
+private const val ABG       = "#0d0d0d"
+private const val ASURFACE  = "#1a1a1a"
+private const val ASURFACE2 = "#262626"
+private const val ABORDER   = "rgba(255,255,255,0.14)"
+private const val ATEXT     = "#f0f0f0"
+private const val ASUB      = "#9ca3af"
+private const val AACCENT   = "#d1d5db"
+private const val AACCENT2  = "#6b7280"
+private const val AGRAD     = "linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%)"
 private const val AGREEN    = "#10b981"
 private const val AAMBER    = "#f59e0b"
 
@@ -42,7 +42,7 @@ fun AboutPage() {
                 to   { opacity: 1; transform: translateY(0) scale(1); }
             }
             .about-nav-link {
-                color: #8b84c4;
+                color: #9ca3af;
                 font-size: 14px;
                 font-weight: 500;
                 text-decoration: none;
@@ -50,10 +50,10 @@ fun AboutPage() {
                 border-radius: 8px;
                 transition: color 0.2s, background 0.2s;
             }
-            .about-nav-link:hover { color: #e8e5ff; background: rgba(99,102,241,0.1); }
+            .about-nav-link:hover { color: #f0f0f0; background: rgba(255,255,255,0.07); }
             .about-cta-btn {
                 padding: 10px 22px;
-                background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+                background: linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%);
                 border: none;
                 border-radius: 10px;
                 color: #fff;
@@ -66,32 +66,32 @@ fun AboutPage() {
             }
             .about-cta-btn:hover { opacity: 0.87; transform: translateY(-1px); }
             .value-card {
-                background: #14132b;
-                border: 1.5px solid rgba(99,102,241,0.22);
+                background: #1a1a1a;
+                border: 1.5px solid rgba(255,255,255,0.14);
                 border-radius: 16px;
                 padding: 28px 24px;
                 transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
             }
             .value-card:hover {
-                border-color: rgba(99,102,241,0.5);
-                box-shadow: 0 8px 32px rgba(99,102,241,0.14);
+                border-color: rgba(255,255,255,0.28);
+                box-shadow: 0 8px 32px rgba(255,255,255,0.09);
                 transform: translateY(-4px);
             }
             .team-card {
-                background: #1a1930;
-                border: 1.5px solid rgba(99,102,241,0.18);
+                background: #262626;
+                border: 1.5px solid rgba(255,255,255,0.12);
                 border-radius: 16px;
                 padding: 28px 24px;
                 text-align: center;
                 transition: border-color 0.25s, transform 0.25s;
             }
             .team-card:hover {
-                border-color: rgba(99,102,241,0.4);
+                border-color: rgba(255,255,255,0.22);
                 transform: translateY(-4px);
             }
             .stat-pill {
-                background: rgba(99,102,241,0.1);
-                border: 1px solid rgba(99,102,241,0.25);
+                background: rgba(255,255,255,0.07);
+                border: 1px solid rgba(255,255,255,0.15);
                 border-radius: 12px;
                 padding: 20px 28px;
                 text-align: center;
@@ -105,7 +105,7 @@ fun AboutPage() {
             minHeight(100.vh)
             background(ABG)
             color(ATEXT)
-            property("font-family", "'Inter', system-ui, sans-serif")
+            property("font-family", "'Gelasio', Georgia, serif")
         }
     }) {
         // Navbar
@@ -115,7 +115,7 @@ fun AboutPage() {
                 property("top", "0")
                 property("z-index", "100")
                 property("backdrop-filter", "blur(16px)")
-                background("rgba(10,9,22,0.85)")
+                background("rgba(0,0,0,0.85)")
                 property("border-bottom", "1px solid $ABORDER")
             }
         }) {
@@ -198,7 +198,7 @@ fun AboutPage() {
                     property("width", "600px")
                     property("height", "400px")
                     property("border-radius", "50%")
-                    background("radial-gradient(ellipse, rgba(99,102,241,0.15) 0%, transparent 70%)")
+                    background("radial-gradient(ellipse, rgba(255,255,255,0.04) 0%, transparent 70%)")
                     property("animation", "aboutBlobDrift 12s ease-in-out infinite")
                     property("pointer-events", "none")
                 }
@@ -219,8 +219,8 @@ fun AboutPage() {
                         display(DisplayStyle.LegacyInlineFlex)
                         alignItems(AlignItems.Center)
                         property("gap", "6px")
-                        background("rgba(99,102,241,0.1)")
-                        property("border", "1px solid rgba(99,102,241,0.3)")
+                        background("rgba(255,255,255,0.07)")
+                        property("border", "1px solid rgba(255,255,255,0.18)")
                         property("border-radius", "20px")
                         property("padding", "5px 14px")
                         property("font-size", "12px")
@@ -393,8 +393,8 @@ fun AboutPage() {
                                 property("width", "28px")
                                 property("height", "28px")
                                 property("border-radius", "8px")
-                                background("rgba(99,102,241,0.12)")
-                                property("border", "1px solid rgba(99,102,241,0.25)")
+                                background("rgba(255,255,255,0.08)")
+                                property("border", "1px solid rgba(255,255,255,0.15)")
                                 display(DisplayStyle.Flex)
                                 alignItems(AlignItems.Center)
                                 justifyContent(JustifyContent.Center)

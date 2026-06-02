@@ -9,16 +9,16 @@ import kotlinx.browser.window
 import org.jetbrains.compose.web.dom.*
 
 // ── Brand colours (mirrors Admin page palette) ────────────────────────────────
-private const val BG         = "#0a0916"
-private const val SURFACE    = "#14132b"
-private const val SURFACE2   = "#1a1930"
-private const val BORDER     = "rgba(99,102,241,0.22)"
-private const val BORDER_MID = "rgba(99,102,241,0.4)"
-private const val TEXT       = "#e8e5ff"
-private const val SUB        = "#8b84c4"
-private const val ACCENT     = "#6366f1"
-private const val ACCENT2    = "#7c3aed"
-private const val GRAD       = "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)"
+private const val BG         = "#0d0d0d"
+private const val SURFACE    = "#1a1a1a"
+private const val SURFACE2   = "#262626"
+private const val BORDER     = "rgba(255,255,255,0.14)"
+private const val BORDER_MID = "rgba(255,255,255,0.22)"
+private const val TEXT       = "#f0f0f0"
+private const val SUB        = "#9ca3af"
+private const val ACCENT     = "#d1d5db"
+private const val ACCENT2    = "#6b7280"
+private const val GRAD       = "linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%)"
 private const val GREEN      = "#10b981"
 private const val AMBER      = "#f59e0b"
 
@@ -34,7 +34,7 @@ fun HomePage() {
             property("background", BG)
             property("color", TEXT)
             property("min-height", "100vh")
-            property("font-family", "'Inter', system-ui, -apple-system, sans-serif")
+            property("font-family", "'Gelasio', Georgia, serif")
             property("overflow-x", "hidden")
         }
     }) {
@@ -72,7 +72,7 @@ private fun SiteNavbar(s: AboutStrings) {
             property("padding", "0 40px")
             property("transition", "all 0.3s ease")
             if (scrolled) {
-                property("background", "rgba(10,9,22,0.92)")
+                property("background", "rgba(0,0,0,0.92)")
                 property("backdrop-filter", "blur(12px)")
                 property("border-bottom", "1px solid $BORDER")
                 property("box-shadow", "0 4px 24px rgba(0,0,0,0.4)")
@@ -93,7 +93,7 @@ private fun SiteNavbar(s: AboutStrings) {
                     style {
                         property("width", "36px"); property("height", "36px"); property("border-radius", "10px")
                         property("object-fit", "cover")
-                        property("box-shadow", "0 4px 12px rgba(99,102,241,0.4)")
+                        property("box-shadow", "0 4px 12px rgba(255,255,255,0.22)")
                     }
                     attr("alt", "SellerScope")
                 }
@@ -133,7 +133,7 @@ private fun NavLink(label: String, href: String) {
                 property("color", if (hovered) TEXT else SUB)
                 property("cursor", "pointer"); property("border-radius", "8px")
                 property("transition", "all 0.2s")
-                property("background", if (hovered) "rgba(99,102,241,0.1)" else "transparent")
+                property("background", if (hovered) "rgba(255,255,255,0.07)" else "transparent")
             }
             onMouseEnter { hovered = true }
             onMouseLeave { hovered = false }
@@ -161,7 +161,7 @@ private fun NavOutlineBtn(label: String, href: String) {
                 property("border", "1px solid $BORDER_MID"); property("border-radius", "8px")
                 property("color", TEXT); property("cursor", "pointer")
                 property("transition", "all 0.2s")
-                property("background", if (hovered) "rgba(99,102,241,0.12)" else "transparent")
+                property("background", if (hovered) "rgba(255,255,255,0.08)" else "transparent")
             }
             onMouseEnter { hovered = true }
             onMouseLeave { hovered = false }
@@ -176,10 +176,10 @@ private fun NavPrimaryBtn(label: String, href: String) {
         Span({
             style {
                 property("padding", "8px 20px"); property("font-size", "14px"); property("font-weight", "700")
-                property("background", if (hovered) "linear-gradient(135deg, #5b52ff 0%, #8b5cf6 100%)" else GRAD)
+                property("background", if (hovered) "linear-gradient(135deg, #4d4d4d 0%, #2a2a2a 100%)" else GRAD)
                 property("border-radius", "8px"); property("color", "white"); property("cursor", "pointer")
                 property("transition", "all 0.2s")
-                property("box-shadow", if (hovered) "0 6px 20px rgba(99,102,241,0.5)" else "0 2px 8px rgba(99,102,241,0.3)")
+                property("box-shadow", if (hovered) "0 6px 20px rgba(255,255,255,0.28)" else "0 2px 8px rgba(255,255,255,0.18)")
                 property("transform", if (hovered) "translateY(-1px)" else "translateY(0)")
                 property("display", "inline-block")
             }
@@ -207,7 +207,7 @@ private fun HeroSection(s: AboutStrings) {
                 property("position", "absolute"); property("top", "-100px"); property("left", "50%")
                 property("transform", "translateX(-50%)")
                 property("width", "800px"); property("height", "600px"); property("border-radius", "50%")
-                property("background", "radial-gradient(ellipse, rgba(99,102,241,0.18) 0%, transparent 70%)")
+                property("background", "radial-gradient(ellipse, rgba(255,255,255,0.04) 0%, transparent 70%)")
                 property("pointer-events", "none")
             }
         }) {}
@@ -215,7 +215,7 @@ private fun HeroSection(s: AboutStrings) {
             style {
                 property("position", "absolute"); property("top", "200px"); property("left", "-100px")
                 property("width", "400px"); property("height", "400px"); property("border-radius", "50%")
-                property("background", "radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 70%)")
+                property("background", "radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 70%)")
                 property("pointer-events", "none")
             }
         }) {}
@@ -232,7 +232,7 @@ private fun HeroSection(s: AboutStrings) {
         Div({
             style {
                 property("display", "inline-flex"); property("align-items", "center"); property("gap", "8px")
-                property("background", "rgba(99,102,241,0.12)"); property("border", "1px solid $BORDER_MID")
+                property("background", "rgba(255,255,255,0.08)"); property("border", "1px solid $BORDER_MID")
                 property("border-radius", "999px"); property("padding", "6px 16px 6px 8px")
                 property("margin-bottom", "28px"); property("font-size", "13px"); property("font-weight", "600")
                 property("animation", "fadeInUp 0.5s ease both")
@@ -307,7 +307,7 @@ private fun HeroSection(s: AboutStrings) {
             style {
                 property("margin-top", "72px"); property("max-width", "960px"); property("margin-left", "auto"); property("margin-right", "auto")
                 property("border-radius", "16px"); property("border", "1px solid $BORDER")
-                property("overflow", "hidden"); property("box-shadow", "0 40px 120px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,102,241,0.2)")
+                property("overflow", "hidden"); property("box-shadow", "0 40px 120px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.12)")
                 property("animation", "fadeInUp 0.7s ease 0.5s both")
                 property("background", SURFACE)
             }
@@ -325,9 +325,9 @@ private fun HeroPrimaryBtn(label: String, href: String) {
             style {
                 property("display", "inline-block")
                 property("padding", "14px 32px"); property("font-size", "16px"); property("font-weight", "700")
-                property("background", if (hovered) "linear-gradient(135deg, #5b52ff 0%, #8b5cf6 100%)" else GRAD)
+                property("background", if (hovered) "linear-gradient(135deg, #4d4d4d 0%, #2a2a2a 100%)" else GRAD)
                 property("border-radius", "10px"); property("color", "white")
-                property("box-shadow", if (hovered) "0 8px 32px rgba(99,102,241,0.55)" else "0 4px 16px rgba(99,102,241,0.35)")
+                property("box-shadow", if (hovered) "0 8px 32px rgba(255,255,255,0.30)" else "0 4px 16px rgba(255,255,255,0.20)")
                 property("transform", if (hovered) "translateY(-2px)" else "translateY(0)")
                 property("transition", "all 0.2s ease"); property("cursor", "pointer")
             }
@@ -345,7 +345,7 @@ private fun HeroSecondaryBtn(label: String, href: String) {
             style {
                 property("display", "inline-block")
                 property("padding", "14px 32px"); property("font-size", "16px"); property("font-weight", "600")
-                property("background", if (hovered) "rgba(99,102,241,0.1)" else "rgba(99,102,241,0.06)")
+                property("background", if (hovered) "rgba(255,255,255,0.07)" else "rgba(255,255,255,0.05)")
                 property("border", "1px solid $BORDER_MID"); property("border-radius", "10px"); property("color", TEXT)
                 property("transition", "all 0.2s ease"); property("cursor", "pointer")
             }
@@ -361,7 +361,7 @@ private fun DashboardMockup() {
     // Topbar
     Div({
         style {
-            property("background", "#100f28"); property("padding", "10px 20px")
+            property("background", "#141414"); property("padding", "10px 20px")
             property("display", "flex"); property("align-items", "center"); property("gap", "12px")
             property("border-bottom", "1px solid $BORDER")
         }
@@ -371,7 +371,7 @@ private fun DashboardMockup() {
         }
         Div({
             style {
-                property("flex", "1"); property("height", "24px"); property("background", "rgba(99,102,241,0.08)")
+                property("flex", "1"); property("height", "24px"); property("background", "rgba(255,255,255,0.06)")
                 property("border-radius", "6px"); property("margin", "0 12px")
             }
         }) {}
@@ -423,7 +423,7 @@ private fun DashboardMockup() {
                     property("border", "1px solid $BORDER"); property("overflow", "hidden")
                 }
             }) {
-                Div({ style { property("padding", "8px 12px"); property("border-bottom", "1px solid $BORDER"); property("background", "rgba(99,102,241,0.06)"); property("font-size", "10px"); property("font-weight", "700"); property("text-transform", "uppercase"); property("letter-spacing", "0.06em"); property("color", SUB) } }) {
+                Div({ style { property("padding", "8px 12px"); property("border-bottom", "1px solid $BORDER"); property("background", "rgba(255,255,255,0.05)"); property("font-size", "10px"); property("font-weight", "700"); property("text-transform", "uppercase"); property("letter-spacing", "0.06em"); property("color", SUB) } }) {
                     Text("Recent Orders")
                 }
                 listOf(
@@ -547,10 +547,10 @@ private fun FeatureCard(icon: String, title: String, desc: String, delay: String
         Div({
             style {
                 property("width", "48px"); property("height", "48px"); property("border-radius", "12px")
-                property("background", "rgba(99,102,241,0.15)"); property("display", "flex")
+                property("background", "rgba(255,255,255,0.10)"); property("display", "flex")
                 property("align-items", "center"); property("justify-content", "center")
                 property("font-size", "22px"); property("margin-bottom", "18px")
-                property("border", "1px solid rgba(99,102,241,0.25)")
+                property("border", "1px solid rgba(255,255,255,0.15)")
             }
         }) { Text(icon) }
         Div({
@@ -612,7 +612,7 @@ private fun PricingSection(s: AboutStrings) {
         id("pricing")
         style {
             property("padding", "100px 40px")
-            property("background", "rgba(10,9,22,0.8)")
+            property("background", "rgba(0,0,0,0.80)")
             property("border-top", "1px solid $BORDER"); property("border-bottom", "1px solid $BORDER")
         }
     }) {
@@ -657,14 +657,14 @@ private fun PriceCard(plan: Plan, delay: String) {
 
     Div({
         style {
-            property("background", if (isHighlighted) "linear-gradient(160deg, rgba(99,102,241,0.18) 0%, rgba(124,58,237,0.12) 100%)" else SURFACE)
+            property("background", if (isHighlighted) "linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%)" else SURFACE)
             property("border", "1px solid ${if (isHighlighted) ACCENT else BORDER}")
             property("border-radius", "20px"); property("padding", "32px 28px")
             property("position", "relative"); property("overflow", "hidden")
             property("transition", "all 0.25s ease")
             property("transform", if (hovered) "translateY(-4px)" else "translateY(0)")
             property("box-shadow", when {
-                isHighlighted -> "0 0 0 1px rgba(99,102,241,0.3), 0 20px 60px rgba(99,102,241,0.2)"
+                isHighlighted -> "0 0 0 1px rgba(255,255,255,0.18), 0 20px 60px rgba(255,255,255,0.12)"
                 hovered       -> "0 16px 48px rgba(0,0,0,0.35)"
                 else          -> "0 2px 8px rgba(0,0,0,0.2)"
             })
@@ -740,11 +740,11 @@ private fun PriceCard(plan: Plan, delay: String) {
                     property("border-radius", "10px"); property("cursor", "pointer")
                     property("transition", "all 0.2s ease")
                     if (isHighlighted) {
-                        property("background", if (btnHovered) "linear-gradient(135deg, #5b52ff 0%, #8b5cf6 100%)" else GRAD)
+                        property("background", if (btnHovered) "linear-gradient(135deg, #4d4d4d 0%, #2a2a2a 100%)" else GRAD)
                         property("color", "white")
-                        property("box-shadow", if (btnHovered) "0 8px 24px rgba(99,102,241,0.5)" else "0 4px 12px rgba(99,102,241,0.3)")
+                        property("box-shadow", if (btnHovered) "0 8px 24px rgba(255,255,255,0.28)" else "0 4px 12px rgba(255,255,255,0.18)")
                     } else {
-                        property("background", if (btnHovered) "rgba(99,102,241,0.15)" else "rgba(99,102,241,0.08)")
+                        property("background", if (btnHovered) "rgba(255,255,255,0.10)" else "rgba(255,255,255,0.06)")
                         property("color", TEXT)
                         property("border", "1px solid $BORDER_MID")
                     }
@@ -840,7 +840,7 @@ private fun CtaBanner(s: AboutStrings) {
     Div({
         style {
             property("margin", "0 40px 80px"); property("border-radius", "24px")
-            property("background", "linear-gradient(135deg, rgba(79,70,229,0.3) 0%, rgba(124,58,237,0.2) 100%)")
+            property("background", "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)")
             property("border", "1px solid $BORDER_MID")
             property("padding", "72px 40px"); property("text-align", "center")
             property("position", "relative"); property("overflow", "hidden")
@@ -852,7 +852,7 @@ private fun CtaBanner(s: AboutStrings) {
                 property("position", "absolute"); property("top", "50%"); property("left", "50%")
                 property("transform", "translate(-50%,-50%)")
                 property("width", "600px"); property("height", "300px"); property("border-radius", "50%")
-                property("background", "radial-gradient(ellipse, rgba(99,102,241,0.25) 0%, transparent 70%)")
+                property("background", "radial-gradient(ellipse, rgba(255,255,255,0.06) 0%, transparent 70%)")
                 property("pointer-events", "none")
             }
         }) {}
@@ -964,7 +964,7 @@ private fun SectionLabel(text: String) {
         Span({
             style {
                 property("display", "inline-block")
-                property("background", "rgba(99,102,241,0.12)"); property("border", "1px solid $BORDER_MID")
+                property("background", "rgba(255,255,255,0.08)"); property("border", "1px solid $BORDER_MID")
                 property("border-radius", "999px"); property("padding", "5px 16px")
                 property("font-size", "12px"); property("font-weight", "700"); property("letter-spacing", "0.08em")
                 property("text-transform", "uppercase"); property("color", ACCENT)

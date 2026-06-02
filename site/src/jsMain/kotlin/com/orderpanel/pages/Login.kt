@@ -16,14 +16,14 @@ import org.jetbrains.compose.web.attributes.placeholder
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 
-private const val BG         = "#0a0916"
-private const val SURFACE    = "#14132b"
-private const val BORDER     = "rgba(99,102,241,0.22)"
-private const val BORDER_MID = "rgba(99,102,241,0.4)"
-private const val TEXT       = "#e8e5ff"
-private const val SUB        = "#8b84c4"
-private const val ACCENT     = "#6366f1"
-private const val GRAD       = "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)"
+private const val BG         = "#0d0d0d"
+private const val SURFACE    = "#1a1a1a"
+private const val BORDER     = "rgba(255,255,255,0.14)"
+private const val BORDER_MID = "rgba(255,255,255,0.22)"
+private const val TEXT       = "#f0f0f0"
+private const val SUB        = "#9ca3af"
+private const val ACCENT     = "#d1d5db"
+private const val GRAD       = "linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%)"
 
 @Page
 @Composable
@@ -42,25 +42,25 @@ fun LoginPage() {
             }
             .login-input {
                 width: 100%;
-                background: rgba(99,102,241,0.06);
-                border: 1.5px solid rgba(99,102,241,0.22);
+                background: rgba(255,255,255,0.05);
+                border: 1.5px solid rgba(255,255,255,0.14);
                 border-radius: 10px;
                 padding: 12px 16px;
-                color: #e8e5ff;
+                color: #f0f0f0;
                 font-size: 15px;
                 outline: none;
                 transition: border-color 0.2s, box-shadow 0.2s;
                 box-sizing: border-box;
             }
-            .login-input::placeholder { color: #8b84c4; }
+            .login-input::placeholder { color: #9ca3af; }
             .login-input:focus {
-                border-color: #6366f1;
-                box-shadow: 0 0 0 3px rgba(99,102,241,0.18);
+                border-color: #d1d5db;
+                box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
             }
             .login-btn {
                 width: 100%;
                 padding: 13px;
-                background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+                background: linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%);
                 border: none;
                 border-radius: 10px;
                 color: #fff;
@@ -75,10 +75,10 @@ fun LoginPage() {
             .login-google-btn {
                 width: 100%;
                 padding: 12px;
-                background: rgba(99,102,241,0.08);
-                border: 1.5px solid rgba(99,102,241,0.22);
+                background: rgba(255,255,255,0.06);
+                border: 1.5px solid rgba(255,255,255,0.14);
                 border-radius: 10px;
-                color: #e8e5ff;
+                color: #f0f0f0;
                 font-size: 14px;
                 font-weight: 500;
                 cursor: pointer;
@@ -89,23 +89,23 @@ fun LoginPage() {
                 gap: 10px;
             }
             .login-google-btn:hover:not(:disabled) {
-                background: rgba(99,102,241,0.16);
-                border-color: rgba(99,102,241,0.4);
+                background: rgba(255,255,255,0.10);
+                border-color: rgba(255,255,255,0.22);
             }
             .login-google-btn:disabled { opacity: 0.55; cursor: not-allowed; }
             .login-link {
-                color: #6366f1;
+                color: #d1d5db;
                 cursor: pointer;
                 text-decoration: none;
             }
             .login-link:hover { text-decoration: underline; }
             .forgot-link {
-                color: #8b84c4;
+                color: #9ca3af;
                 font-size: 13px;
                 cursor: pointer;
                 text-decoration: none;
             }
-            .forgot-link:hover { color: #6366f1; }
+            .forgot-link:hover { color: #d1d5db; }
         """.trimIndent()
         document.head?.appendChild(style)
     }
@@ -173,7 +173,7 @@ fun LoginPage() {
                 property("top", "-120px"); property("left", "-80px")
                 property("width", "480px"); property("height", "480px")
                 property("border-radius", "50%")
-                background("radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%)")
+                background("radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)")
                 property("animation", "blobFloat 9s ease-in-out infinite")
                 property("pointer-events", "none")
             }
@@ -184,7 +184,7 @@ fun LoginPage() {
                 property("bottom", "-100px"); property("right", "-60px")
                 property("width", "380px"); property("height", "380px")
                 property("border-radius", "50%")
-                background("radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%)")
+                background("radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%)")
                 property("animation", "blobFloat 12s ease-in-out infinite reverse")
                 property("pointer-events", "none")
             }

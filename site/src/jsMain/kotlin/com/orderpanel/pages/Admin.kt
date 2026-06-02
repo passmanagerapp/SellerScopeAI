@@ -503,7 +503,7 @@ fun AdminPage() {
                 to   { opacity: 1; transform: translateX(0); }
             }
             @keyframes adminSavedFlash {
-                0%   { background: rgba(99,102,241,0.22); }
+                0%   { background: rgba(255,255,255,0.14); }
                 100% { background: transparent; }
             }
             @keyframes adminRowOut {
@@ -527,12 +527,12 @@ fun AdminPage() {
 
 // ── Dashboard ─────────────────────────────────────────────────────────────────
 
-private const val BG      = "#0c0b1e"
-private const val SURFACE = "#14132b"
-private const val TEXT    = "#e8e5ff"
-private const val SUB     = "#8b84c4"
-private const val BORDER  = "rgba(99,102,241,0.18)"
-private const val INPUT_BG = "#0c0b1e"
+private const val BG      = "#0d0d0d"
+private const val SURFACE = "#1a1a1a"
+private const val TEXT    = "#f0f0f0"
+private const val SUB     = "#9ca3af"
+private const val BORDER  = "rgba(255,255,255,0.12)"
+private const val INPUT_BG = "#0d0d0d"
 
 @Composable
 private fun AdminDashboard(onLogout: () -> Unit) {
@@ -685,7 +685,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
         style {
             property("position", "fixed"); property("inset", "0"); property("z-index", "9999")
             property("overflow-y", "auto"); property("background", BG)
-            property("font-family", "'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+            property("font-family", "'Gelasio', Georgia, serif")
             property("color", TEXT)
         }
     }) {
@@ -841,7 +841,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                 Div({
                     style {
                         property("background", SURFACE)
-                        property("border", "1px solid rgba(99,102,241,0.35)")
+                        property("border", "1px solid rgba(255,255,255,0.20)")
                         property("border-radius", "16px")
                         property("padding", "40px 48px")
                         property("display", "flex"); property("flex-direction", "column")
@@ -853,8 +853,8 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                     Div({
                         style {
                             property("width", "44px"); property("height", "44px")
-                            property("border", "3px solid rgba(99,102,241,0.25)")
-                            property("border-top-color", "#6366f1")
+                            property("border", "3px solid rgba(255,255,255,0.15)")
+                            property("border-top-color", "#d1d5db")
                             property("border-radius", "50%")
                             property("animation", "adminSpin 0.75s linear infinite")
                         }
@@ -877,8 +877,8 @@ private fun AdminDashboard(onLogout: () -> Unit) {
         // ── Topbar ────────────────────────────────────────────────────────
         Div({
             style {
-                property("background", "#100f28")
-                property("border-bottom", "1px solid rgba(99,102,241,0.3)")
+                property("background", "#141414")
+                property("border-bottom", "1px solid rgba(255,255,255,0.18)")
                 property("padding", "0 32px"); property("height", "58px")
                 property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
                 property("position", "sticky"); property("top", "0"); property("z-index", "100")
@@ -890,14 +890,14 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                         style {
                             property("width", "32px"); property("height", "32px")
                             property("border-radius", "8px"); property("object-fit", "cover")
-                            property("border", "1px solid rgba(99,102,241,0.4)")
+                            property("border", "1px solid rgba(255,255,255,0.22)")
                         }
                         attr("alt", "shop logo")
                     }
                 } else {
                     Div({
                         style {
-                            property("background", "rgba(99,102,241,0.3)"); property("border-radius", "8px")
+                            property("background", "rgba(255,255,255,0.18)"); property("border-radius", "8px")
                             property("width", "32px"); property("height", "32px"); property("display", "flex")
                             property("align-items", "center"); property("justify-content", "center"); property("font-size", "18px")
                         }
@@ -913,8 +913,8 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                 Select({
                     onInput { e -> filterMonth.value = e.target.asDynamic().value as String; editingAd = false }
                     style {
-                        property("padding", "6px 10px"); property("background", "rgba(99,102,241,0.2)")
-                        property("color", "white"); property("border", "1px solid rgba(99,102,241,0.4)")
+                        property("padding", "6px 10px"); property("background", "rgba(255,255,255,0.12)")
+                        property("color", "white"); property("border", "1px solid rgba(255,255,255,0.22)")
                         property("border-radius", "7px"); property("font-size", "13px"); property("cursor", "pointer")
                         property("outline", "none"); property("font-family", "inherit")
                     }
@@ -933,8 +933,8 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                 }
                 Button({
                     style {
-                        property("background", "rgba(99,102,241,0.2)"); property("color", "white")
-                        property("border", "1px solid rgba(99,102,241,0.4)"); property("border-radius", "7px")
+                        property("background", "rgba(255,255,255,0.12)"); property("color", "white")
+                        property("border", "1px solid rgba(255,255,255,0.22)"); property("border-radius", "7px")
                         property("padding", "6px 14px"); property("font-size", "13px"); property("font-weight", "500")
                         property("cursor", "pointer"); property("font-family", "inherit")
                     }
@@ -986,7 +986,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                             property("cursor", "pointer"); property("font-size", "13px")
                             property("font-weight", if (isActive) "700" else "500")
                             property("color", if (isActive) TEXT else SUB)
-                            property("background", if (isActive) "rgba(99,102,241,0.2)" else "transparent")
+                            property("background", if (isActive) "rgba(255,255,255,0.12)" else "transparent")
                             property("user-select", "none"); property("transition", "all 0.15s")
                         }
                         onClick { currentTab = tab }
@@ -1136,7 +1136,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                 // Import CSV button
                                 Button({
                                     style {
-                                        property("background", "rgba(99,102,241,0.1)"); property("color", TEXT)
+                                        property("background", "rgba(255,255,255,0.07)"); property("color", TEXT)
                                         property("border", "1px solid $BORDER"); property("border-radius", "9px"); property("padding", "9px 16px")
                                         property("font-size", "14px"); property("font-weight", "600")
                                         property("cursor", if (csvImporting) "not-allowed" else "pointer")
@@ -1150,7 +1150,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                 }) { Text(if (csvImporting) s.admImportingBtn else s.admImportBtn) }
                                 Button({
                                     style {
-                                        property("background", "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)")
+                                        property("background", "linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%)")
                                         property("color", "white"); property("border", "none")
                                         property("border-radius", "9px"); property("padding", "9px 20px")
                                         property("font-size", "14px"); property("font-weight", "600"); property("cursor", "pointer")
@@ -1195,7 +1195,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
 
                         // ── Stat cards ────────────────────────────────────────
                         Div({ style { property("display", "grid"); property("grid-template-columns", "repeat(4, 1fr)"); property("gap", "14px") } }) {
-                            DashCard(s.admStatTotalOrders,  totOrders.toString(),   "📦", "#6366f1", animDelay = "0s")
+                            DashCard(s.admStatTotalOrders,  totOrders.toString(),   "📦", "#d1d5db", animDelay = "0s")
                             DashCard(s.admStatDelivered,     totDelivered.toString(), "✅", "#10b981", animDelay = "0.07s")
                             DashCard(s.admStatInTransit,    totShipped.toString(),   "🚚", "#3b82f6", animDelay = "0.14s")
                             DashCard(s.admStatProcessing,    totProcess.toString(),   "⏳", "#f59e0b", animDelay = "0.21s")
@@ -1235,15 +1235,15 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                 attr("placeholder", "0.00")
                                                 style {
                                                     property("width", "80px"); property("font-size", "14px"); property("font-weight", "700")
-                                                    property("border", "1px solid #6366f1"); property("border-radius", "6px")
-                                                    property("background", "rgba(99,102,241,0.1)"); property("color", TEXT)
+                                                    property("border", "1px solid #d1d5db"); property("border-radius", "6px")
+                                                    property("background", "rgba(255,255,255,0.07)"); property("color", TEXT)
                                                     property("padding", "3px 7px"); property("outline", "none"); property("font-family", "inherit")
                                                 }
                                             }
                                             Span({
                                                 style {
                                                     property("cursor", "pointer"); property("font-size", "12px"); property("font-weight", "700")
-                                                    property("color", "white"); property("background", "#6366f1")
+                                                    property("color", "white"); property("background", "#d1d5db")
                                                     property("padding", "3px 10px"); property("border-radius", "6px")
                                                     property("opacity", if (adSaving) "0.6" else "1")
                                                 }
@@ -1329,7 +1329,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                             }) {
                                 Div({
                                     style {
-                                        property("background", "rgba(99,102,241,0.07)")
+                                        property("background", "rgba(255,255,255,0.05)")
                                         property("border-bottom", "1px solid $BORDER"); property("padding", "16px 24px")
                                         property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
                                     }
@@ -1486,7 +1486,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                     property("padding", "10px 12px"); property("border-radius", "7px")
                                                     property("border", "1px solid $BORDER"); property("font-size", "14px")
                                                     property("font-weight", "600")
-                                                    property("background", "rgba(99,102,241,0.08)")
+                                                    property("background", "rgba(255,255,255,0.06)")
                                                     property("color", SUB)
                                                 }
                                             }) { Text("\$${fTariff.fmt2()}") }
@@ -1599,8 +1599,8 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                 Div({
                                     style {
                                         property("width", "40px"); property("height", "40px")
-                                        property("border", "3px solid rgba(99,102,241,0.2)")
-                                        property("border-top-color", "#6366f1")
+                                        property("border", "3px solid rgba(255,255,255,0.12)")
+                                        property("border-top-color", "#d1d5db")
                                         property("border-radius", "50%")
                                         property("animation", "adminSpin 0.75s linear infinite")
                                         property("margin", "0 auto 16px")
@@ -1638,7 +1638,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                     style {
                                         property("display", "flex"); property("align-items", "center"); property("gap", "8px")
                                         property("flex", "1"); property("min-width", "180px")
-                                        property("background", "rgba(99,102,241,0.1)")
+                                        property("background", "rgba(255,255,255,0.07)")
                                         property("border", "1px solid $BORDER"); property("border-radius", "8px")
                                         property("padding", "6px 12px")
                                     }
@@ -1676,14 +1676,14 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                             "Delivered"  -> "#10b981"
                                             "Shipped"    -> "#3b82f6"
                                             "Processing" -> "#f59e0b"
-                                            else         -> "#6366f1"
+                                            else         -> "#d1d5db"
                                         }
                                         Span({
                                             style {
                                                 property("padding", "4px 13px"); property("border-radius", "999px")
                                                 property("font-size", "12px"); property("font-weight", if (active) "700" else "500")
                                                 property("cursor", "pointer"); property("user-select", "none")
-                                                property("background", if (active) "${accent}22" else "rgba(99,102,241,0.08)")
+                                                property("background", if (active) "${accent}22" else "rgba(255,255,255,0.06)")
                                                 property("color", if (active) accent else SUB)
                                                 property("border", "1px solid ${if (active) accent else BORDER}")
                                                 property("transition", "all 0.15s")
@@ -1702,7 +1702,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                         onInput { e -> sortOrder = e.target.asDynamic().value as String }
                                         style {
                                             property("border", "1px solid $BORDER"); property("border-radius", "7px")
-                                            property("background", "rgba(99,102,241,0.1)")
+                                            property("background", "rgba(255,255,255,0.07)")
                                             property("color", TEXT); property("font-size", "12px"); property("font-weight", "600")
                                             property("padding", "5px 10px"); property("cursor", "pointer"); property("font-family", "inherit")
                                             property("outline", "none")
@@ -1728,7 +1728,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                         onInput { dateFrom = it.value }
                                         style {
                                             property("border", "1px solid $BORDER"); property("border-radius", "7px")
-                                            property("background", "rgba(99,102,241,0.1)")
+                                            property("background", "rgba(255,255,255,0.07)")
                                             property("color", TEXT); property("font-size", "12px"); property("font-weight", "600")
                                             property("padding", "5px 8px"); property("cursor", "pointer"); property("font-family", "inherit")
                                             property("outline", "none")
@@ -1742,7 +1742,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                         onInput { dateTo = it.value }
                                         style {
                                             property("border", "1px solid $BORDER"); property("border-radius", "7px")
-                                            property("background", "rgba(99,102,241,0.1)")
+                                            property("background", "rgba(255,255,255,0.07)")
                                             property("color", TEXT); property("font-size", "12px"); property("font-weight", "600")
                                             property("padding", "5px 8px"); property("cursor", "pointer"); property("font-family", "inherit")
                                             property("outline", "none")
@@ -1775,7 +1775,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                         property("padding", "14px 20px")
                                         if (tableOpen) property("border-bottom", "1px solid $BORDER")
                                         property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
-                                        property("background", "rgba(99,102,241,0.07)")
+                                        property("background", "rgba(255,255,255,0.05)")
                                         property("cursor", "pointer"); property("user-select", "none")
                                     }
                                     onClick { tableOpen = !tableOpen }
@@ -1798,7 +1798,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                         Div({
                                             style {
                                                 property("font-size", "12px"); property("color", SUB)
-                                                property("background", "rgba(99,102,241,0.14)")
+                                                property("background", "rgba(255,255,255,0.09)")
                                                 property("padding", "3px 10px"); property("border-radius", "999px")
                                             }
                                         }) { Text("${displayOrders.size} ${s.admRecordsOf} ${monthOrders.size} ${s.admRecords}") }
@@ -1854,7 +1854,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                     style {
                                                         property("border-bottom", "1px solid $BORDER")
                                                         if (isEditing)
-                                                            property("background", "rgba(99,102,241,0.08)")
+                                                            property("background", "rgba(255,255,255,0.06)")
                                                         if (isDeleting)
                                                             property("animation", "adminRowOut 0.35s ease forwards")
                                                         else if (isRecentlySaved)
@@ -1887,7 +1887,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                                     attr("target", "_blank")
                                                                     attr("rel", "noopener noreferrer")
                                                                     style {
-                                                                        property("color", "#6366f1"); property("font-family", "ui-monospace, monospace")
+                                                                        property("color", "#d1d5db"); property("font-family", "ui-monospace, monospace")
                                                                         property("font-size", "13px"); property("text-decoration", "none")
                                                                         property("font-weight", "500"); property("cursor", "pointer")
                                                                     }
@@ -2302,7 +2302,7 @@ private fun AppInfoTab(
             Div({
                 style {
                     property("padding", "14px 20px"); property("border-bottom", "1px solid $BORDER")
-                    property("background", "rgba(99,102,241,0.07)")
+                    property("background", "rgba(255,255,255,0.05)")
                 }
             }) {
                 Div({ style { property("font-size", "13px"); property("font-weight", "700"); property("letter-spacing", "0.04em"); property("text-transform", "uppercase"); property("color", SUB) } }) {
@@ -2334,7 +2334,7 @@ private fun AppInfoTab(
                     style {
                         property("width", "64px"); property("height", "64px"); property("border-radius", "12px")
                         property("overflow", "hidden"); property("flex-shrink", "0"); property("cursor", "pointer")
-                        property("border", "2px dashed ${if (shopLogoUrl.value.isEmpty()) "rgba(99,102,241,0.4)" else BORDER}")
+                        property("border", "2px dashed ${if (shopLogoUrl.value.isEmpty()) "rgba(255,255,255,0.22)" else BORDER}")
                         property("position", "relative")
                     }
                     onClick { document.getElementById("shop-logo-file-input")?.asDynamic()?.click() }
@@ -2350,7 +2350,7 @@ private fun AppInfoTab(
                                 property("width", "100%"); property("height", "100%")
                                 property("display", "flex"); property("flex-direction", "column")
                                 property("align-items", "center"); property("justify-content", "center")
-                                property("background", "rgba(99,102,241,0.1)"); property("gap", "2px")
+                                property("background", "rgba(255,255,255,0.07)"); property("gap", "2px")
                             }
                         }) {
                             Span({ style { property("font-size", "22px") } }) { Text("🏪") }
@@ -2420,7 +2420,7 @@ private fun AppInfoTab(
                 }
                 Button({
                     style {
-                        property("background", if (isSavingShop) "#6b7280" else "#6366f1"); property("color", "white")
+                        property("background", if (isSavingShop) "#6b7280" else "#d1d5db"); property("color", "white")
                         property("border", "none"); property("border-radius", "7px"); property("padding", "8px 18px")
                         property("font-size", "13px"); property("font-weight", "600")
                         property("cursor", if (isSavingShop) "not-allowed" else "pointer")
@@ -2452,7 +2452,7 @@ private fun AppInfoTab(
                     property("padding", "14px 20px")
                     if (skuSectionOpen) property("border-bottom", "1px solid $BORDER")
                     property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
-                    property("background", "rgba(99,102,241,0.07)")
+                    property("background", "rgba(255,255,255,0.05)")
                     property("cursor", "pointer"); property("user-select", "none")
                 }
                 onClick { skuSectionOpen = !skuSectionOpen }
@@ -2461,7 +2461,7 @@ private fun AppInfoTab(
                     Text(s.admSkuSection)
                 }
                 Div({ style { property("display", "flex"); property("align-items", "center"); property("gap", "8px") } }) {
-                    Div({ style { property("font-size", "12px"); property("color", SUB); property("background", "rgba(99,102,241,0.14)"); property("padding", "3px 10px"); property("border-radius", "999px") } }) {
+                    Div({ style { property("font-size", "12px"); property("color", SUB); property("background", "rgba(255,255,255,0.09)"); property("padding", "3px 10px"); property("border-radius", "999px") } }) {
                         Text("${skuCosts.value.size} ${s.admSkusCountLabel}")
                     }
                     Span({
@@ -2521,7 +2521,7 @@ private fun AppInfoTab(
                     }
                     Button({
                         style {
-                            property("background", if (isSaving) "#6b7280" else "#6366f1"); property("color", "white")
+                            property("background", if (isSaving) "#6b7280" else "#d1d5db"); property("color", "white")
                             property("border", "none"); property("border-radius", "7px"); property("padding", "7px 16px")
                             property("font-size", "13px"); property("font-weight", "600"); property("cursor", if (isSaving) "not-allowed" else "pointer")
                             property("font-family", "inherit")
@@ -2576,7 +2576,7 @@ private fun AppInfoTab(
                                     Text("\$${cost.fmt2()}")
                                 }
                                 if (days != null) {
-                                    Span({ style { property("font-size", "12px"); property("color", "#6366f1"); property("font-weight", "600"); property("background", "rgba(99,102,241,0.12)"); property("padding", "2px 8px"); property("border-radius", "999px") } }) {
+                                    Span({ style { property("font-size", "12px"); property("color", "#d1d5db"); property("font-weight", "600"); property("background", "rgba(255,255,255,0.08)"); property("padding", "2px 8px"); property("border-radius", "999px") } }) {
                                         Text("$days ${if (days > 1) s.admDaysUnit else s.admDayUnit} ${s.admDeliveryLabel}")
                                     }
                                 }
@@ -2683,7 +2683,7 @@ private fun ShipmentTab(
             style {
                 property("display", "flex"); property("align-items", "center"); property("gap", "10px")
                 property("padding", "10px 16px"); property("border-radius", "8px 8px 0 0")
-                property("background", "rgba(99,102,241,0.07)"); property("border-bottom", "1px solid $BORDER")
+                property("background", "rgba(255,255,255,0.05)"); property("border-bottom", "1px solid $BORDER")
             }
         }) {
             Span({ style { property("font-size", "16px") } }) { Text(icon) }
@@ -2743,7 +2743,7 @@ private fun ShipmentTab(
         Div({ style { property("display", "flex"); property("gap", "12px"); property("flex-wrap", "wrap") } }) {
             statBadge(s.admShipOverdue, overdueRows.size, "#ef4444")
             statBadge(s.admShipEarly, earlyRows.size, "#10b981")
-            statBadge(s.admShipOnTime, onTimeRows.size, "#6366f1")
+            statBadge(s.admShipOnTime, onTimeRows.size, "#d1d5db")
             statBadge(s.admShipPending, pendingRows.size, SUB)
             if (noConfigOrders.isNotEmpty()) statBadge(s.admShipNoConfig, noConfigOrders.size, "#f59e0b")
         }
@@ -2829,7 +2829,7 @@ private fun ShipmentTab(
                     property("box-shadow", "0 4px 20px rgba(0,0,0,0.3)")
                 }
             }) {
-                sectionHeader("✓", s.admShipSectionOnTime, onTimeRows.size, "#6366f1")
+                sectionHeader("✓", s.admShipSectionOnTime, onTimeRows.size, "#d1d5db")
                 Table({ style { property("width", "100%"); property("border-collapse", "collapse") } }) {
                     Thead { tableHeader(s.admShipTableName, s.admShipTableSku, s.admShipTableOrderDate, s.admShipTableShipped, s.admShipTableEstDeadline) }
                     Tbody {
@@ -2838,7 +2838,7 @@ private fun ShipmentTab(
                                 tableCell(r.order.receiverName)
                                 tableCell(r.order.sku.ifEmpty { "—" }, mono = true)
                                 tableCell(r.order.orderDate, color = SUB)
-                                tableCell(r.order.shippingDate, color = "#6366f1")
+                                tableCell(r.order.shippingDate, color = "#d1d5db")
                                 tableCell(r.estimatedDate, color = SUB)
                             }
                         }
@@ -2954,7 +2954,7 @@ private fun DistributionChart(
         monthlyAdSpend[key] ?: snapshotAdByMonth[key] ?: 0.0
     }
 
-    val countryColors = mapOf("US" to "#6366f1", "UK" to "#3b82f6", "EU" to "#10b981", "Canada" to "#ef4444", "Other" to "#94a3b8")
+    val countryColors = mapOf("US" to "#d1d5db", "UK" to "#3b82f6", "EU" to "#10b981", "Canada" to "#ef4444", "Other" to "#94a3b8")
     val countryFlags  = mapOf("US" to "🇺🇸", "UK" to "🇬🇧", "EU" to "🇪🇺", "Canada" to "🇨🇦", "Other" to "🌍")
     val countryCounts = listOf("US", "UK", "EU", "Canada", "Other").associateWith { c ->
         activeOrders.count { o -> if (c == "Other") o.country !in listOf("US","UK","EU","Canada","USA") else o.country == c || (c == "US" && o.country == "USA") }
@@ -2977,7 +2977,7 @@ private fun DistributionChart(
     val countrySlices = allCountrySlices
     val countryTotal  = allCountrySlices.sumOf { it.value }
 
-    val skuPalette = listOf("#6366f1","#3b82f6","#10b981","#f59e0b","#8b5cf6","#94a3b8")
+    val skuPalette = listOf("#d1d5db","#3b82f6","#10b981","#f59e0b","#8b5cf6","#94a3b8")
     val skuSorted  = skuCounts.entries.sortedByDescending { it.value }
     val skuTop4    = skuSorted.take(4).mapIndexed { i, (sku, count) -> Slice(sku, count.toDouble(), skuPalette[i]) }
     val skuOther   = skuSorted.drop(4).sumOf { it.value }
@@ -3042,21 +3042,21 @@ private fun DistributionChart(
             style {
                 property("padding", "14px 20px"); property("border-bottom", "1px solid $BORDER")
                 property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
-                property("background", "rgba(99,102,241,0.07)")
+                property("background", "rgba(255,255,255,0.05)")
             }
         }) {
             Div({ style { property("font-size", "13px"); property("font-weight", "700"); property("letter-spacing", "0.04em"); property("text-transform", "uppercase"); property("color", SUB) } }) {
                 Text(s.admDistributionTitle)
             }
             Div({ style { property("display", "flex"); property("align-items", "center"); property("gap", "8px") } }) {
-                Div({ style { property("font-size", "12px"); property("color", SUB); property("background", "rgba(99,102,241,0.14)"); property("padding", "3px 10px"); property("border-radius", "999px") } }) {
+                Div({ style { property("font-size", "12px"); property("color", SUB); property("background", "rgba(255,255,255,0.09)"); property("padding", "3px 10px"); property("border-radius", "999px") } }) {
                     Text(s.admDistributionPct)
                 }
                 Select({
                     onInput { e -> period = e.target.asDynamic().value as String }
                     style {
                         property("border", "1px solid $BORDER"); property("border-radius", "7px")
-                        property("background", "rgba(99,102,241,0.1)")
+                        property("background", "rgba(255,255,255,0.07)")
                         property("color", TEXT); property("font-size", "12px"); property("font-weight", "600")
                         property("padding", "4px 8px"); property("cursor", "pointer"); property("font-family", "inherit")
                         property("outline", "none")
@@ -3137,7 +3137,7 @@ private fun DistributionChart(
                                             Span({ style { property("font-size", "11px"); property("color", SUB) } }) { Text("\$${fmtDollar(s.value)}") }
                                         }
                                     }
-                                    Div({ style { property("height", "4px"); property("border-radius", "999px"); property("background", "rgba(99,102,241,0.12)"); property("overflow", "hidden") } }) {
+                                    Div({ style { property("height", "4px"); property("border-radius", "999px"); property("background", "rgba(255,255,255,0.08)"); property("overflow", "hidden") } }) {
                                         Div({ style { property("height", "100%"); property("border-radius", "999px"); property("background", s.color); property("width", pctStr); property("transform-origin", "left center"); property("animation", "adminBarGrow 0.7s cubic-bezier(0.4,0,0.2,1) 0.3s both") } }) {}
                                     }
                                 }
@@ -3216,7 +3216,7 @@ private fun DistributionChart(
                                             Span({ style { property("font-size", "11px"); property("color", SUB) } }) { Text("${sl.value.toInt()} ${s.admOrdersUnit}") }
                                         }
                                     }
-                                    Div({ style { property("height", "4px"); property("border-radius", "999px"); property("background", "rgba(99,102,241,0.12)"); property("overflow", "hidden") } }) {
+                                    Div({ style { property("height", "4px"); property("border-radius", "999px"); property("background", "rgba(255,255,255,0.08)"); property("overflow", "hidden") } }) {
                                         Div({ style { property("height", "100%"); property("border-radius", "999px"); property("background", sl.color); property("width", pctStr); property("transform-origin", "left center"); property("animation", "adminBarGrow 0.7s cubic-bezier(0.4,0,0.2,1) 0.3s both") } }) {}
                                     }
                                 }
@@ -3294,7 +3294,7 @@ private fun DistributionChart(
                                                 Span({ style { property("font-size", "11px"); property("color", SUB) } }) { Text("${sl.value.toInt()} ${s.admOrdersUnit}") }
                                             }
                                         }
-                                        Div({ style { property("height", "4px"); property("border-radius", "999px"); property("background", "rgba(99,102,241,0.12)"); property("overflow", "hidden") } }) {
+                                        Div({ style { property("height", "4px"); property("border-radius", "999px"); property("background", "rgba(255,255,255,0.08)"); property("overflow", "hidden") } }) {
                                             Div({ style { property("height", "100%"); property("border-radius", "999px"); property("background", sl.color); property("width", pctStr); property("transform-origin", "left center"); property("animation", "adminBarGrow 0.7s cubic-bezier(0.4,0,0.2,1) 0.3s both") } }) {}
                                         }
                                     }
@@ -3405,7 +3405,7 @@ private fun AnalyticsView(orders: List<AdminOrder>) {
                 s.admAnalyticsBestCountry, "${countryFlags[bestCountry?.key] ?: "🌍"} ${bestCountry?.key ?: "—"}",
                 fmtM(bestCountry?.value ?: 0.0),
                 s.admAnalyticsNetProfitMonth,
-                "🌍", "#6366f1", borderRight = true, borderBottom = false
+                "🌍", "#d1d5db", borderRight = true, borderBottom = false
             )
             AnalyticCard(
                 s.admAnalyticsAvgNet, fmtM(avgNet),
@@ -3489,13 +3489,13 @@ private fun YearlyRevenueBreakdown(
             style {
                 property("padding", "14px 20px"); property("border-bottom", "1px solid $BORDER")
                 property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
-                property("background", "rgba(99,102,241,0.07)")
+                property("background", "rgba(255,255,255,0.05)")
             }
         }) {
             Div({ style { property("font-size", "13px"); property("font-weight", "700"); property("letter-spacing", "0.04em"); property("text-transform", "uppercase"); property("color", SUB) } }) {
                 Text(s.admYearlyBreakdownTitle)
             }
-            Div({ style { property("font-size", "12px"); property("color", SUB); property("background", "rgba(99,102,241,0.14)"); property("padding", "3px 10px"); property("border-radius", "999px") } }) {
+            Div({ style { property("font-size", "12px"); property("color", SUB); property("background", "rgba(255,255,255,0.09)"); property("padding", "3px 10px"); property("border-radius", "999px") } }) {
                 Text("$currentYear · ${s.admYearlyBreakdownSub}")
             }
         }
@@ -3842,7 +3842,7 @@ private fun MonthlyBarChart(allOrders: List<AdminOrder>) {
             style {
                 property("padding", "14px 20px"); property("border-bottom", "1px solid $BORDER")
                 property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
-                property("background", "rgba(99,102,241,0.07)")
+                property("background", "rgba(255,255,255,0.05)")
             }
         }) {
             Div({ style { property("font-size", "13px"); property("font-weight", "700"); property("letter-spacing", "0.04em"); property("text-transform", "uppercase"); property("color", SUB) } }) {
@@ -3856,7 +3856,7 @@ private fun MonthlyBarChart(allOrders: List<AdminOrder>) {
                         Text("$lbl — $cnt ${s.admOrdersUnit} (${(pct * 10).toLong().toDouble() / 10}%)")
                     }
                 }
-                Div({ style { property("font-size", "12px"); property("color", SUB); property("background", "rgba(99,102,241,0.14)"); property("padding", "3px 10px"); property("border-radius", "999px") } }) {
+                Div({ style { property("font-size", "12px"); property("color", SUB); property("background", "rgba(255,255,255,0.09)"); property("padding", "3px 10px"); property("border-radius", "999px") } }) {
                     Text(s.admMonthlyLast12)
                 }
             }
@@ -3875,7 +3875,7 @@ private fun MonthlyBarChart(allOrders: List<AdminOrder>) {
                     val isHovered = hoveredIdx == i
                     val barH = if (cnt > 0) (cnt.toDouble() / maxCount * barMaxPx).toInt().coerceAtLeast(4) else 2
                     val barColor = when {
-                        isCurrent -> "#6366f1"
+                        isCurrent -> "#d1d5db"
                         isHovered -> "rgba(99,102,241,0.6)"
                         else      -> "rgba(99,102,241,0.28)"
                     }
@@ -4173,7 +4173,7 @@ private fun HistoricalDataTab(
                     property("padding", "14px 20px")
                     if (summaryOpen) property("border-bottom", "1px solid $BORDER")
                     property("font-size", "13px"); property("font-weight", "700"); property("letter-spacing", "0.05em")
-                    property("background", "rgba(99,102,241,0.07)"); property("color", SUB)
+                    property("background", "rgba(255,255,255,0.05)"); property("color", SUB)
                     property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
                     property("cursor", "pointer"); property("user-select", "none")
                 }
@@ -4262,7 +4262,7 @@ private fun HistoricalDataTab(
                     property("padding", "14px 20px")
                     if (countryOpen) property("border-bottom", "1px solid $BORDER")
                     property("font-size", "13px"); property("font-weight", "700"); property("letter-spacing", "0.05em")
-                    property("background", "rgba(99,102,241,0.07)"); property("color", SUB)
+                    property("background", "rgba(255,255,255,0.05)"); property("color", SUB)
                     property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
                     property("cursor", "pointer"); property("user-select", "none")
                 }
@@ -4324,7 +4324,7 @@ private fun HistoricalDataTab(
                         property("padding", "14px 20px")
                         if (skuOpen) property("border-bottom", "1px solid $BORDER")
                         property("font-size", "13px"); property("font-weight", "700"); property("letter-spacing", "0.05em")
-                        property("background", "rgba(99,102,241,0.07)"); property("color", SUB)
+                        property("background", "rgba(255,255,255,0.05)"); property("color", SUB)
                         property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
                         property("cursor", "pointer"); property("user-select", "none")
                     }
@@ -4371,7 +4371,7 @@ private fun HistoricalDataTab(
         Div({ style { property("display", "flex"); property("align-items", "center"); property("gap", "12px"); property("flex-wrap", "wrap") } }) {
             Button({
                 style {
-                    property("background", if (isSaving) "rgba(99,102,241,0.4)" else "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)")
+                    property("background", if (isSaving) "rgba(255,255,255,0.22)" else "linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%)")
                     property("color", "white"); property("border", "none"); property("border-radius", "9px")
                     property("padding", "11px 28px"); property("font-size", "14px"); property("font-weight", "600")
                     property("cursor", if (isSaving) "not-allowed" else "pointer"); property("font-family", "inherit")
@@ -4450,7 +4450,7 @@ private fun HistoricalDataTab(
                         property("padding", "14px 20px")
                         if (savedOpen) property("border-bottom", "1px solid $BORDER")
                         property("font-size", "13px"); property("font-weight", "700"); property("letter-spacing", "0.05em")
-                        property("background", "rgba(99,102,241,0.07)"); property("color", SUB)
+                        property("background", "rgba(255,255,255,0.05)"); property("color", SUB)
                         property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between")
                         property("cursor", "pointer"); property("user-select", "none")
                     }
@@ -4493,7 +4493,7 @@ private fun HistoricalDataTab(
                                     style {
                                         property("border-bottom", "1px solid $BORDER")
                                         property("cursor", "pointer")
-                                        if (isSelected) property("background", "rgba(99,102,241,0.12)")
+                                        if (isSelected) property("background", "rgba(255,255,255,0.08)")
                                     }
                                     onClick { selectedMonth = snap.month }
                                 }) {

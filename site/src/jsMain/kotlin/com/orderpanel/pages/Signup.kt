@@ -16,12 +16,12 @@ import org.jetbrains.compose.web.attributes.placeholder
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 
-private const val SBG    = "#0a0916"
-private const val SS     = "#14132b"
-private const val SB     = "rgba(99,102,241,0.22)"
-private const val ST     = "#e8e5ff"
-private const val SSUB   = "#8b84c4"
-private const val SGRAD  = "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)"
+private const val SBG    = "#0d0d0d"
+private const val SS     = "#1a1a1a"
+private const val SB     = "rgba(255,255,255,0.14)"
+private const val ST     = "#f0f0f0"
+private const val SSUB   = "#9ca3af"
+private const val SGRAD  = "linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%)"
 private const val SGREEN = "#10b981"
 
 @Page
@@ -41,25 +41,25 @@ fun SignupPage() {
             }
             .signup-input {
                 width: 100%;
-                background: rgba(99,102,241,0.06);
-                border: 1.5px solid rgba(99,102,241,0.22);
+                background: rgba(255,255,255,0.05);
+                border: 1.5px solid rgba(255,255,255,0.14);
                 border-radius: 10px;
                 padding: 12px 16px;
-                color: #e8e5ff;
+                color: #f0f0f0;
                 font-size: 15px;
                 outline: none;
                 transition: border-color 0.2s, box-shadow 0.2s;
                 box-sizing: border-box;
             }
-            .signup-input::placeholder { color: #8b84c4; }
+            .signup-input::placeholder { color: #9ca3af; }
             .signup-input:focus {
-                border-color: #6366f1;
-                box-shadow: 0 0 0 3px rgba(99,102,241,0.18);
+                border-color: #d1d5db;
+                box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
             }
             .signup-btn {
                 width: 100%;
                 padding: 13px;
-                background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+                background: linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%);
                 border: none;
                 border-radius: 10px;
                 color: #fff;
@@ -74,10 +74,10 @@ fun SignupPage() {
             .signup-google-btn {
                 width: 100%;
                 padding: 12px;
-                background: rgba(99,102,241,0.08);
-                border: 1.5px solid rgba(99,102,241,0.22);
+                background: rgba(255,255,255,0.06);
+                border: 1.5px solid rgba(255,255,255,0.14);
                 border-radius: 10px;
-                color: #e8e5ff;
+                color: #f0f0f0;
                 font-size: 14px;
                 font-weight: 500;
                 cursor: pointer;
@@ -88,12 +88,12 @@ fun SignupPage() {
                 gap: 10px;
             }
             .signup-google-btn:hover:not(:disabled) {
-                background: rgba(99,102,241,0.16);
-                border-color: rgba(99,102,241,0.4);
+                background: rgba(255,255,255,0.10);
+                border-color: rgba(255,255,255,0.22);
             }
             .signup-google-btn:disabled { opacity: 0.55; cursor: not-allowed; }
             .signup-link {
-                color: #6366f1;
+                color: #d1d5db;
                 cursor: pointer;
                 text-decoration: none;
             }
@@ -113,12 +113,12 @@ fun SignupPage() {
             }
             .terms-text {
                 font-size: 12px;
-                color: #8b84c4;
+                color: #9ca3af;
                 text-align: center;
                 line-height: 1.6;
                 margin-top: 16px;
             }
-            .terms-text a { color: #6366f1; text-decoration: none; }
+            .terms-text a { color: #d1d5db; text-decoration: none; }
             .terms-text a:hover { text-decoration: underline; }
         """.trimIndent()
         document.head?.appendChild(style)
@@ -197,7 +197,7 @@ fun SignupPage() {
                 property("top", "-80px"); property("right", "-100px")
                 property("width", "500px"); property("height", "500px")
                 property("border-radius", "50%")
-                background("radial-gradient(circle, rgba(124,58,237,0.16) 0%, transparent 70%)")
+                background("radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)")
                 property("animation", "signupBlobFloat 10s ease-in-out infinite")
                 property("pointer-events", "none")
             }
@@ -208,7 +208,7 @@ fun SignupPage() {
                 property("bottom", "-60px"); property("left", "-80px")
                 property("width", "420px"); property("height", "420px")
                 property("border-radius", "50%")
-                background("radial-gradient(circle, rgba(99,102,241,0.14) 0%, transparent 70%)")
+                background("radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)")
                 property("animation", "signupBlobFloat 14s ease-in-out infinite reverse")
                 property("pointer-events", "none")
             }
