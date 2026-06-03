@@ -282,6 +282,7 @@
     <string name="admFormFieldStatus">Status</string>
     <string name="admFormFieldReceiverName">Receiver Name *</string>
     <string name="admFormFieldTrackingNumber">Tracking Number</string>
+    <string name="admFormFieldCargoCompany">Cargo Company</string>
     <string name="admFormFieldShippingDate">Shipping Date</string>
     <string name="admFormFieldSku">SKU — auto-fills product cost</string>
     <string name="admFormFieldCountry">Country</string>
@@ -325,6 +326,7 @@
     <string name="admTableReceiver">Receiver</string>
     <string name="admTableSku">SKU</string>
     <string name="admTableTracking">Tracking</string>
+    <string name="admTableCargo">Carrier</string>
     <string name="admTableShipDate">Ship Date</string>
     <string name="admTableCountry">Country</string>
     <string name="admTableStatus">Status</string>

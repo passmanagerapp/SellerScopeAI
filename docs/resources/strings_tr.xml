@@ -282,6 +282,7 @@
     <string name="admFormFieldStatus">Durum</string>
     <string name="admFormFieldReceiverName">Alıcı Adı *</string>
     <string name="admFormFieldTrackingNumber">Takip Numarası</string>
+    <string name="admFormFieldCargoCompany">Kargo Şirketi</string>
     <string name="admFormFieldShippingDate">Kargo Tarihi</string>
     <string name="admFormFieldSku">SKU — ürün maliyetini otomatik doldurur</string>
     <string name="admFormFieldCountry">Ülke</string>
@@ -326,6 +327,7 @@
     <string name="admTableReceiver">Alıcı</string>
     <string name="admTableSku">SKU</string>
     <string name="admTableTracking">Takip</string>
+    <string name="admTableCargo">Kargo Firması</string>
     <string name="admTableShipDate">Kargo Tarihi</string>
     <string name="admTableCountry">Ülke</string>
     <string name="admTableStatus">Durum</string>
