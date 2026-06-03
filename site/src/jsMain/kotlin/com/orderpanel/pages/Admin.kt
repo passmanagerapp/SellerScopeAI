@@ -59,7 +59,8 @@ data class AdminOrder(
     val productCost: Double    = 0.0,
     val netProfit: Double      = 0.0,
     val status: String         = "Processing",
-    val sku: String            = ""
+    val sku: String            = "",
+    val cargoCompany: String   = ""
 )
 
 @Serializable
@@ -189,7 +190,8 @@ private fun adminOrderFromDynamic(data: dynamic, docId: String): AdminOrder? = t
         productCost    = data.productCost?.toString()?.toDoubleOrNull() ?: 0.0,
         netProfit      = data.netProfit?.toString()?.toDoubleOrNull() ?: 0.0,
         status         = data.status?.toString() ?: "Processing",
-        sku            = data.sku?.toString() ?: ""
+        sku            = data.sku?.toString() ?: "",
+        cargoCompany   = data.cargoCompany?.toString() ?: ""
     )
 } catch (e: Throwable) {
     console.error("adminOrderFromDynamic failed for $docId: ${e.message}")
@@ -563,18 +565,20 @@ private fun AdminDashboard(onLogout: () -> Unit) {
     var fProfit    by remember { mutableStateOf("") }
     var fShipCost  by remember { mutableStateOf("") }
     var fProdCost  by remember { mutableStateOf("") }
-    var fSku       by remember { mutableStateOf("") }
-    var fStatus    by remember { mutableStateOf("Processing") }
-    var formError  by remember { mutableStateOf("") }
+    var fSku          by remember { mutableStateOf("") }
+    var fStatus       by remember { mutableStateOf("Processing") }
+    var fCargoCompany by remember { mutableStateOf("") }
+    var formError     by remember { mutableStateOf("") }
     var isSaving   by remember { mutableStateOf(false) }
 
     // Inline edit state
-    val editingId    = remember { mutableStateOf<String?>(null) }
-    var editTracking by remember { mutableStateOf("") }
-    var editShipDate by remember { mutableStateOf("") }
-    var editStatus   by remember { mutableStateOf("Processing") }
-    var editShipCost by remember { mutableStateOf("") }
-    var isSavingEdit by remember { mutableStateOf(false) }
+    val editingId         = remember { mutableStateOf<String?>(null) }
+    var editTracking      by remember { mutableStateOf("") }
+    var editShipDate      by remember { mutableStateOf("") }
+    var editStatus        by remember { mutableStateOf("Processing") }
+    var editShipCost      by remember { mutableStateOf("") }
+    var editCargoCompany  by remember { mutableStateOf("") }
+    var isSavingEdit      by remember { mutableStateOf(false) }
     val recentlySavedId  = remember { mutableStateOf<String?>(null) }
     val pendingDeleteId    = remember { mutableStateOf<String?>(null) }
     val deletingId         = remember { mutableStateOf<String?>(null) }
@@ -1410,6 +1414,17 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                 attr("placeholder", s.admFormPlaceholderTracking); fldStyle()
                                             }
                                         }
+                                        FGroup(s.admFormFieldCargoCompany) {
+                                            Select({
+                                                onInput { e -> fCargoCompany = e.target.asDynamic().value as String }
+                                                selectStyle()
+                                            }) {
+                                                Option("", { value(""); if (fCargoCompany.isEmpty()) attr("selected", "selected") }) { Text("—") }
+                                                listOf("UPS", "FedEx").forEach { c ->
+                                                    Option(c, { value(c); if (c == fCargoCompany) attr("selected", "selected") }) { Text(c) }
+                                                }
+                                            }
+                                        }
                                         FGroup(s.admFormFieldShippingDate) {
                                             Input(InputType.Date) { value(fShipDate); onInput { fShipDate = it.value }; fldStyle() }
                                         }
@@ -1562,7 +1577,8 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                     productCost    = fProdCost.toDoubleOrNull() ?: 0.0,
                                                     netProfit      = netProfit,
                                                     status         = fStatus,
-                                                    sku            = fSku
+                                                    sku            = fSku,
+                                                    cargoCompany   = fCargoCompany
                                                 )
                                                 isSaving = true; saveError.value = ""
                                                 MainScope().launch {
@@ -1571,7 +1587,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                         orders.value = listOf(order) + orders.value
                                                         fDate = ""; fQty = "1"; fName = ""; fTracking = ""; fShipDate = ""
                                                         fCountry = "US"; fCustomVal = ""; fProfit = ""; fShipCost = ""; fProdCost = ""
-                                                        fSku = ""; fStatus = "Processing"; formError = ""
+                                                        fSku = ""; fStatus = "Processing"; fCargoCompany = ""; formError = ""
                                                         showForm.value = false
                                                     } catch (e: Throwable) {
                                                         saveError.value = "${s.admErrSaveFailed}${e.message}"
@@ -1820,7 +1836,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                     }) {
                                         Thead {
                                             Tr({ style { property("border-bottom", "1px solid $BORDER") } }) {
-                                                listOf(s.admTableDate, s.admTableQty, s.admTableReceiver, s.admTableSku, s.admTableTracking, s.admTableShipDate, s.admTableCountry, s.admTableStatus,
+                                                listOf(s.admTableDate, s.admTableQty, s.admTableReceiver, s.admTableSku, s.admTableTracking, s.admTableCargo, s.admTableShipDate, s.admTableCountry, s.admTableStatus,
                                                     s.admTableProfit, s.admTableShipCost, s.admTableTariff, s.admTableProdCost, s.admTableNetProfit, "").forEach { h ->
                                                     Th({
                                                         style {
@@ -1881,8 +1897,12 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                         TCell("—", muted = true)
                                                     } else {
                                                         Td({ style { property("padding", "11px 16px"); property("white-space", "nowrap") } }) {
+                                                            val trackUrl = when (o.cargoCompany) {
+                                                                "FedEx" -> "https://www.fedex.com/fedextrack/?trknbr=${o.trackingNumber}"
+                                                                else    -> "https://www.ups.com/track?loc=tr_TR&tracknum=${o.trackingNumber}"
+                                                            }
                                                             A(
-                                                                href = "https://www.ups.com/track?loc=tr_TR&tracknum=${o.trackingNumber}",
+                                                                href = trackUrl,
                                                                 attrs = {
                                                                     attr("target", "_blank")
                                                                     attr("rel", "noopener noreferrer")
@@ -1893,6 +1913,34 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                                     }
                                                                 }
                                                             ) { Text(o.trackingNumber) }
+                                                        }
+                                                    }
+
+                                                    // Cargo Company
+                                                    if (isEditing) {
+                                                        Td({ style { property("padding", "8px 12px"); property("white-space", "nowrap") } }) {
+                                                            Select({
+                                                                onInput { e -> editCargoCompany = e.target.asDynamic().value as String }
+                                                            }) {
+                                                                Option("", { value(""); if (editCargoCompany.isEmpty()) attr("selected", "selected") }) { Text("—") }
+                                                                listOf("UPS", "FedEx").forEach { c ->
+                                                                    Option(c, { value(c); if (c == editCargoCompany) attr("selected", "selected") }) { Text(c) }
+                                                                }
+                                                            }
+                                                        }
+                                                    } else {
+                                                        Td({ style { property("padding", "8px 16px"); property("white-space", "nowrap") } }) {
+                                                            when (o.cargoCompany) {
+                                                                "UPS"   -> Img(src = "/public/ups.png") {
+                                                                    attr("alt", "UPS")
+                                                                    style { property("height", "20px"); property("width", "auto"); property("object-fit", "contain"); property("vertical-align", "middle") }
+                                                                }
+                                                                "FedEx" -> Img(src = "/public/fedex.png") {
+                                                                    attr("alt", "FedEx")
+                                                                    style { property("height", "18px"); property("width", "auto"); property("object-fit", "contain"); property("vertical-align", "middle") }
+                                                                }
+                                                                else    -> Span({ style { property("color", "#6b7280"); property("font-size", "13px") } }) { Text("—") }
+                                                            }
                                                         }
                                                     }
 
@@ -2050,7 +2098,8 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                                             shippingDate   = normalizeCsvDate(editShipDate.trim()),
                                                                             status         = editStatus,
                                                                             shippingCost   = newShipCost,
-                                                                            netProfit      = newNetProfit
+                                                                            netProfit      = newNetProfit,
+                                                                            cargoCompany   = editCargoCompany
                                                                         )
                                                                         isSavingEdit = true; saveError.value = ""
                                                                         MainScope().launch {
@@ -2094,11 +2143,12 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                                         onMouseEnter { editHovered = true }
                                                                         onMouseLeave { editHovered = false }
                                                                         onClick {
-                                                                            editingId.value = o.id
-                                                                            editTracking = o.trackingNumber
-                                                                            editShipDate = o.shippingDate
-                                                                            editStatus   = o.status
-                                                                            editShipCost = o.shippingCost.fmt2()
+                                                                            editingId.value  = o.id
+                                                                            editTracking     = o.trackingNumber
+                                                                            editShipDate     = o.shippingDate
+                                                                            editStatus       = o.status
+                                                                            editShipCost     = o.shippingCost.fmt2()
+                                                                            editCargoCompany = o.cargoCompany
                                                                         }
                                                                     }) { Text("✏️") }
                                                                     if (editHovered) {
@@ -2132,9 +2182,10 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                                             fProfit    = o.profit.fmt2()
                                                                             fShipCost  = o.shippingCost.fmt2()
                                                                             fProdCost  = o.productCost.fmt2()
-                                                                            fSku       = o.sku
-                                                                            fStatus    = o.status
-                                                                            formError  = ""
+                                                                            fSku          = o.sku
+                                                                            fStatus       = o.status
+                                                                            fCargoCompany = o.cargoCompany
+                                                                            formError     = ""
                                                                             showForm.value = true
                                                                             window.scrollTo(0.0, 0.0)
                                                                         }
