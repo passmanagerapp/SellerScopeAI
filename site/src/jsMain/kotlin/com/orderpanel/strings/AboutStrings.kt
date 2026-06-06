@@ -178,6 +178,7 @@ data class AboutStrings(
     val admPageTitle: String,
     val admTopbarOrders: String,
     val admTopbarAllMonths: String,
+    val admTopbarAllYears: String,
     val admTopbarSignOut: String,
     val admNavLabel: String,
     val admNavOrders: String,
@@ -222,6 +223,12 @@ data class AboutStrings(
 
     val admCsvOverlayTitle: String,
     val admCsvOverlayBody: String,
+
+    val admCsvInfoTitle: String,
+    val admCsvInfoBody: String,
+    val admCsvInfoRequired: String,
+    val admCsvInfoOptional: String,
+    val admCsvInfoContinue: String,
     val admImportBtn: String,
     val admImportingBtn: String,
     val admNewOrderBtn: String,
@@ -465,4 +472,17 @@ data class AboutStrings(
     val monthShortApr: String, val monthShortMay: String, val monthShortJun: String,
     val monthShortJul: String, val monthShortAug: String, val monthShortSep: String,
     val monthShortOct: String, val monthShortNov: String, val monthShortDec: String,
+
+    // ── Onboarding ───────────────────────────────────────────────────────────
+    val admOnbTitle: String,
+    val admOnbSubtitle: String,
+    val admOnbSkip: String,
+    val admOnbNext: String,
+    val admOnbBack: String,
+    val admOnbFinish: String,
+    val admOnbStep1Title: String, val admOnbStep1Desc: String,
+    val admOnbStep2Title: String, val admOnbStep2Desc: String,
+    val admOnbStep3Title: String, val admOnbStep3Desc: String,
+    val admOnbStep4Title: String, val admOnbStep4Desc: String,
+    val admOnbStep5Title: String, val admOnbStep5Desc: String,
 )

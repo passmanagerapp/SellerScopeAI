@@ -42,7 +42,7 @@ fun HomePage() {
         HeroSection(s)
         SocialProofBar(s)
         FeaturesSection(s)
-        PricingSection(s)
+        // PricingSection(s)
         FaqSection(s)
         CtaBanner(s)
         SiteFooter(s)
@@ -113,7 +113,7 @@ private fun SiteNavbar(s: AboutStrings) {
             }
         }) {
             NavLink(s.idxNavFeatures, "#features")
-            NavLink(s.idxNavPricing, "#pricing")
+            // NavLink(s.idxNavPricing, "#pricing")
             NavLink(s.idxNavFaq, "#faq")
             NavLink(s.navAboutUs, "/about")
             NavDivider()
@@ -293,14 +293,6 @@ private fun HeroSection(s: AboutStrings) {
         }
 
         // Trust line
-        P({
-            style {
-                property("margin-top", "20px"); property("font-size", "13px"); property("color", SUB)
-                property("animation", "fadeInUp 0.55s ease 0.4s both")
-            }
-        }) {
-            Text(s.idxHeroTrustLine)
-        }
 
         // Dashboard preview card
         Div({
@@ -565,7 +557,7 @@ private fun FeatureCard(icon: String, title: String, desc: String, delay: String
     }
 }
 
-// ── Pricing ───────────────────────────────────────────────────────────────────
+/* ── Pricing (commented out — project is free for now) ───────────────────────
 private data class Plan(
     val name: String,
     val price: String,
@@ -756,8 +748,10 @@ private fun PriceCard(plan: Plan, delay: String) {
         }
     }
 }
+*/
 
 // ── FAQ ───────────────────────────────────────────────────────────────────────
+
 @Composable
 private fun FaqSection(s: AboutStrings) {
     val faqs = listOf(
@@ -897,13 +891,13 @@ private fun SiteFooter(s: AboutStrings) {
                         property("margin-bottom", "14px")
                     }
                 }) {
-                    Div({
+                    Img(src = "/app.png") {
                         style {
                             property("width", "32px"); property("height", "32px"); property("border-radius", "8px")
-                            property("background", GRAD); property("display", "flex")
-                            property("align-items", "center"); property("justify-content", "center"); property("font-size", "16px")
+                            property("object-fit", "cover")
                         }
-                    }) { Text("📊") }
+                        attr("alt", "SellerScope")
+                    }
                     Span({ style { property("font-size", "16px"); property("font-weight", "800"); property("color", TEXT) } }) { Text(s.brand) }
                 }
                 P({ style { property("font-size", "13px"); property("color", SUB); property("line-height", "1.65") } }) {

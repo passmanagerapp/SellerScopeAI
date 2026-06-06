@@ -352,6 +352,15 @@ private fun todayIso(): String {
 
 private fun firstOfMonthIso(): String = "${currentMonthKey()}-01"
 
+private fun formDefaultDate(filterMonth: String): String =
+    if (filterMonth == "all" || filterMonth == currentMonthKey()) todayIso() else "$filterMonth-01"
+
+private fun lastDayOfMonthIso(monthKey: String): String {
+    val (year, month) = monthKey.split("-").map { it.toInt() }
+    val lastDay = Date(year, month, 0).getDate() // day 0 of next month = last day of this month
+    return "$monthKey-${lastDay.toString().padStart(2, '0')}"
+}
+
 private fun monthLabel(key: String, s: AboutStrings = getStrings()): String {
     val names = listOf(s.monthJanuary, s.monthFebruary, s.monthMarch, s.monthApril,
         s.monthMay, s.monthJune, s.monthJuly, s.monthAugust, s.monthSeptember,
@@ -555,7 +564,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
     val saveError   = remember { mutableStateOf("") }
 
     // Form fields
-    var fDate      by remember { mutableStateOf("") }
+    var fDate      by remember { mutableStateOf(formDefaultDate(filterMonth.value)) }
     var fQty       by remember { mutableStateOf("1") }
     var fName      by remember { mutableStateOf("") }
     var fTracking  by remember { mutableStateOf("") }
@@ -584,6 +593,8 @@ private fun AdminDashboard(onLogout: () -> Unit) {
     val deletingId         = remember { mutableStateOf<String?>(null) }
     var showClearAllDialog by remember { mutableStateOf(false) }
     var isClearingAll      by remember { mutableStateOf(false) }
+    var showCsvInfoDialog  by remember { mutableStateOf(false) }
+    var showOnboarding     by remember { mutableStateOf(window.localStorage.getItem("ss_onboarding_v1") == null) }
 
     val fTariff    = if (fCountry == "US") (fCustomVal.toDoubleOrNull() ?: 0.0) * 0.10 else 0.0
     val fNetProfit = (fProfit.toDoubleOrNull() ?: 0.0) - (fShipCost.toDoubleOrNull() ?: 0.0) - fTariff - (fProdCost.toDoubleOrNull() ?: 0.0)
@@ -606,6 +617,14 @@ private fun AdminDashboard(onLogout: () -> Unit) {
     var searchQuery  by remember { mutableStateOf("") }
     var dateFrom     by remember { mutableStateOf(firstOfMonthIso()) }
     var dateTo       by remember { mutableStateOf(todayIso()) }
+
+    LaunchedEffect(filterMonth.value) {
+        val m = filterMonth.value
+        if (m != "all") {
+            dateFrom = "$m-01"
+            dateTo = if (m == currentMonthKey()) todayIso() else lastDayOfMonthIso(m)
+        }
+    }
 
     DisposableEffect(Unit) {
         val unsub = onAuthStateChanged(getFirebaseAuth()) { user ->
@@ -693,6 +712,14 @@ private fun AdminDashboard(onLogout: () -> Unit) {
             property("color", TEXT)
         }
     }) {
+
+        // ── Onboarding overlay ────────────────────────────────────────────
+        if (showOnboarding) {
+            OnboardingOverlay(s) {
+                window.localStorage.setItem("ss_onboarding_v1", "done")
+                showOnboarding = false
+            }
+        }
 
         // ── Delete confirmation dialog ─────────────────────────────────────
         pendingDeleteId.value?.let { deleteId ->
@@ -831,6 +858,101 @@ private fun AdminDashboard(onLogout: () -> Unit) {
             }
         }
 
+        // ── CSV info dialog ────────────────────────────────────────────────
+        if (showCsvInfoDialog) {
+            Div({
+                style {
+                    property("position", "fixed"); property("inset", "0"); property("z-index", "99999")
+                    property("background", "rgba(0,0,0,0.6)")
+                    property("display", "flex"); property("align-items", "center"); property("justify-content", "center")
+                    property("backdrop-filter", "blur(3px)")
+                }
+                onClick { showCsvInfoDialog = false }
+            }) {
+                Div({
+                    style {
+                        property("background", SURFACE)
+                        property("border", "1px solid $BORDER")
+                        property("border-radius", "14px")
+                        property("padding", "32px 36px")
+                        property("display", "flex"); property("flex-direction", "column"); property("gap", "20px")
+                        property("min-width", "360px"); property("max-width", "460px")
+                        property("box-shadow", "0 20px 60px rgba(0,0,0,0.4)")
+                    }
+                    onClick { it.stopPropagation() }
+                }) {
+                    Div({ style { property("font-size", "17px"); property("font-weight", "600"); property("color", TEXT) } }) {
+                        Text(s.admCsvInfoTitle)
+                    }
+                    Div({ style { property("font-size", "13px"); property("color", SUB); property("line-height", "1.6") } }) {
+                        Text(s.admCsvInfoBody)
+                    }
+                    Div({
+                        style {
+                            property("background", "rgba(255,255,255,0.04)")
+                            property("border", "1px solid $BORDER")
+                            property("border-radius", "8px")
+                            property("padding", "14px 16px")
+                            property("display", "flex"); property("flex-direction", "column"); property("gap", "8px")
+                        }
+                    }) {
+                        val required = s.admCsvInfoRequired
+                        val optional = s.admCsvInfoOptional
+                        listOf(
+                            "Sale Date" to required,
+                            "Full Name" to required,
+                            "Number of Items" to required,
+                            "Ship Country" to required,
+                            "SKU" to required,
+                            "Order Value" to optional,
+                            "Discount Amount" to optional
+                        ).forEach { (header, kind) ->
+                            Div({ style { property("display", "flex"); property("align-items", "center"); property("justify-content", "space-between") } }) {
+                                Span({
+                                    style {
+                                        property("font-family", "monospace"); property("font-size", "13px")
+                                        property("color", TEXT); property("font-weight", "500")
+                                    }
+                                }) { Text(header) }
+                                Span({
+                                    style {
+                                        val isReq = kind == required
+                                        property("font-size", "11px"); property("font-weight", "600")
+                                        property("padding", "2px 8px"); property("border-radius", "99px")
+                                        property("background", if (isReq) "rgba(239,68,68,0.12)" else "rgba(107,114,128,0.12)")
+                                        property("color", if (isReq) "#ef4444" else "#6b7280")
+                                    }
+                                }) { Text(kind) }
+                            }
+                        }
+                    }
+                    Div({ style { property("display", "flex"); property("gap", "10px"); property("justify-content", "flex-end") } }) {
+                        Button({
+                            style {
+                                property("padding", "8px 18px"); property("border-radius", "8px"); property("border", "1px solid $BORDER")
+                                property("background", "transparent"); property("color", TEXT); property("font-size", "14px")
+                                property("cursor", "pointer"); property("font-family", "inherit")
+                            }
+                            onClick { showCsvInfoDialog = false }
+                        }) { Text(s.admClearAllCancel) }
+                        Button({
+                            style {
+                                property("padding", "8px 20px"); property("border-radius", "8px"); property("border", "none")
+                                property("background", "linear-gradient(135deg, #3d3d3d 0%, #1a1a1a 100%)")
+                                property("color", "white"); property("font-size", "14px"); property("font-weight", "600")
+                                property("cursor", "pointer"); property("font-family", "inherit")
+                                property("box-shadow", "0 2px 8px rgba(0,0,0,0.2)")
+                            }
+                            onClick {
+                                showCsvInfoDialog = false
+                                document.getElementById("csv-import-input")?.asDynamic()?.click()
+                            }
+                        }) { Text(s.admCsvInfoContinue) }
+                    }
+                }
+            }
+        }
+
         // ── CSV import overlay ─────────────────────────────────────────────
         if (csvImporting) {
             Div({
@@ -914,8 +1036,20 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                 Div({ style { property("font-size", "14px"); property("color", "rgba(255,255,255,0.7)") } }) { Text(s.admTopbarOrders) }
             }
             Div({ style { property("display", "flex"); property("align-items", "center"); property("gap", "12px") } }) {
+                val fmNow = Date()
+                val fmCurYear  = fmNow.getFullYear()
+                val fmCurMonth = fmNow.getMonth() + 1
+                val fmSelYear  = if (filterMonth.value == "all") fmCurYear.toString() else filterMonth.value.take(4)
+                val fmSelMonth = if (filterMonth.value == "all") fmCurMonth.toString().padStart(2, '0') else filterMonth.value.takeLast(2)
+                // Year select
                 Select({
-                    onInput { e -> filterMonth.value = e.target.asDynamic().value as String; editingAd = false }
+                    onInput { e ->
+                        val y = e.target.asDynamic().value as String
+                        val maxM = if (y == fmCurYear.toString()) fmCurMonth else 12
+                        val m = (fmSelMonth.toIntOrNull() ?: fmCurMonth).coerceIn(1, maxM)
+                        filterMonth.value = "$y-${m.toString().padStart(2, '0')}"
+                        editingAd = false
+                    }
                     style {
                         property("padding", "6px 10px"); property("background", "rgba(255,255,255,0.12)")
                         property("color", "white"); property("border", "1px solid rgba(255,255,255,0.22)")
@@ -923,16 +1057,30 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                         property("outline", "none"); property("font-family", "inherit")
                     }
                 }) {
-                    Option("all", { value("all"); if (filterMonth.value == "all") attr("selected", "selected") }) { Text(s.admTopbarAllMonths) }
-                    val now = Date()
-                    val curYear = now.getFullYear(); val curMonth = now.getMonth() + 1
-                    val recentMonths = (0..11).map { offset ->
-                        val total = curYear * 12 + curMonth - 1 - offset
-                        "${total / 12}-${((total % 12) + 1).toString().padStart(2, '0')}"
+                    (2021..fmCurYear).reversed().forEach { y ->
+                        Option(y.toString(), { value(y.toString()); if (y.toString() == fmSelYear) attr("selected", "selected") }) { Text(y.toString()) }
                     }
-                    val months = (recentMonths + availMonths).distinct().sortedDescending()
-                    months.forEach { m ->
-                        Option(m, { value(m); if (m == filterMonth.value) attr("selected", "selected") }) { Text(monthLabel(m)) }
+                }
+                // Month select
+                val maxMonth = if (fmSelYear == fmCurYear.toString()) fmCurMonth else 12
+                Select({
+                    onInput { e ->
+                        val m = e.target.asDynamic().value as String
+                        filterMonth.value = "$fmSelYear-$m"
+                        editingAd = false
+                    }
+                    style {
+                        property("padding", "6px 10px"); property("background", "rgba(255,255,255,0.12)")
+                        property("color", "white"); property("border", "1px solid rgba(255,255,255,0.22)")
+                        property("border-radius", "7px"); property("font-size", "13px"); property("cursor", "pointer")
+                        property("outline", "none"); property("font-family", "inherit")
+                    }
+                }) {
+                    (1..maxMonth).forEach { mNum ->
+                        val mStr = mNum.toString().padStart(2, '0')
+                        Option(mStr, { value(mStr); if (mStr == fmSelMonth) attr("selected", "selected") }) {
+                            Text(monthLabel("$fmSelYear-$mStr", s).substringBefore(" "))
+                        }
                     }
                 }
                 Button({
@@ -1148,7 +1296,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                     }
                                     onClick {
                                         if (!csvImporting) {
-                                            document.getElementById("csv-import-input")?.asDynamic()?.click()
+                                            showCsvInfoDialog = true
                                         }
                                     }
                                 }) { Text(if (csvImporting) s.admImportingBtn else s.admImportBtn) }
@@ -1315,7 +1463,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                     property("padding", "24px"); property("overflow-y", "auto")
                                 }
                                 onClick {
-                                    fDate = ""; fQty = "1"; fName = ""; fTracking = ""; fShipDate = ""
+                                    fDate = formDefaultDate(filterMonth.value); fQty = "1"; fName = ""; fTracking = ""; fShipDate = ""
                                     fCountry = "US"; fCustomVal = ""; fProfit = ""; fShipCost = ""; fProdCost = ""
                                     fSku = ""; fStatus = "Processing"; formError = ""
                                     showForm.value = false
@@ -1351,7 +1499,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                             property("padding", "2px 7px"); property("border-radius", "6px")
                                         }
                                         onClick {
-                                            fDate = ""; fQty = "1"; fName = ""; fTracking = ""; fShipDate = ""
+                                            fDate = formDefaultDate(filterMonth.value); fQty = "1"; fName = ""; fTracking = ""; fShipDate = ""
                                             fCountry = "US"; fCustomVal = ""; fProfit = ""; fShipCost = ""; fProdCost = ""
                                             fSku = ""; fStatus = "Processing"; formError = ""
                                             showForm.value = false
@@ -1420,7 +1568,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                 selectStyle()
                                             }) {
                                                 Option("", { value(""); if (fCargoCompany.isEmpty()) attr("selected", "selected") }) { Text("—") }
-                                                listOf("UPS", "FedEx").forEach { c ->
+                                                listOf("UPS", "FedEx", "Shipentegra").forEach { c ->
                                                     Option(c, { value(c); if (c == fCargoCompany) attr("selected", "selected") }) { Text(c) }
                                                 }
                                             }
@@ -1585,7 +1733,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                     try {
                                                         fsSaveOrder(order)
                                                         orders.value = listOf(order) + orders.value
-                                                        fDate = ""; fQty = "1"; fName = ""; fTracking = ""; fShipDate = ""
+                                                        fDate = formDefaultDate(filterMonth.value); fQty = "1"; fName = ""; fTracking = ""; fShipDate = ""
                                                         fCountry = "US"; fCustomVal = ""; fProfit = ""; fShipCost = ""; fProdCost = ""
                                                         fSku = ""; fStatus = "Processing"; fCargoCompany = ""; formError = ""
                                                         showForm.value = false
@@ -1898,8 +2046,9 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                     } else {
                                                         Td({ style { property("padding", "11px 16px"); property("white-space", "nowrap") } }) {
                                                             val trackUrl = when (o.cargoCompany) {
-                                                                "FedEx" -> "https://www.fedex.com/fedextrack/?trknbr=${o.trackingNumber}"
-                                                                else    -> "https://www.ups.com/track?loc=tr_TR&tracknum=${o.trackingNumber}"
+                                                                "FedEx"       -> "https://www.fedex.com/fedextrack/?trknbr=${o.trackingNumber}"
+                                                                "Shipentegra" -> "https://track.shipentegra.com/?trackno=${o.trackingNumber}"
+                                                                else          -> "https://www.ups.com/track?loc=tr_TR&tracknum=${o.trackingNumber}"
                                                             }
                                                             A(
                                                                 href = trackUrl,
@@ -1923,7 +2072,7 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                                 onInput { e -> editCargoCompany = e.target.asDynamic().value as String }
                                                             }) {
                                                                 Option("", { value(""); if (editCargoCompany.isEmpty()) attr("selected", "selected") }) { Text("—") }
-                                                                listOf("UPS", "FedEx").forEach { c ->
+                                                                listOf("UPS", "FedEx", "Shipentegra").forEach { c ->
                                                                     Option(c, { value(c); if (c == editCargoCompany) attr("selected", "selected") }) { Text(c) }
                                                                 }
                                                             }
@@ -1931,13 +2080,17 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                                     } else {
                                                         Td({ style { property("padding", "8px 16px"); property("white-space", "nowrap") } }) {
                                                             when (o.cargoCompany) {
-                                                                "UPS"   -> Img(src = "/public/ups.png") {
+                                                                "UPS"   -> Img(src = "/ups.png") {
                                                                     attr("alt", "UPS")
                                                                     style { property("height", "20px"); property("width", "auto"); property("object-fit", "contain"); property("vertical-align", "middle") }
                                                                 }
-                                                                "FedEx" -> Img(src = "/public/fedex.png") {
+                                                                "FedEx" -> Img(src = "/fedex.png") {
                                                                     attr("alt", "FedEx")
                                                                     style { property("height", "18px"); property("width", "auto"); property("object-fit", "contain"); property("vertical-align", "middle") }
+                                                                }
+                                                                "Shipentegra" -> Img(src = "/shipentegra.jpg") {
+                                                                    attr("alt", "Shipentegra")
+                                                                    style { property("height", "20px"); property("width", "auto"); property("object-fit", "contain"); property("vertical-align", "middle") }
                                                                 }
                                                                 else    -> Span({ style { property("color", "#6b7280"); property("font-size", "13px") } }) { Text("—") }
                                                             }
@@ -2235,14 +2388,170 @@ private fun AdminDashboard(onLogout: () -> Unit) {
                                 }
                             }
 
-                            DistributionChart(monthOrders, orders.value, monthlyAdSpend.value, snapshots.value)
+                            DistributionChart(monthOrders, orders.value, monthlyAdSpend.value, filterMonth.value)
                             AnalyticsView(monthOrders)
-                            YearlyRevenueBreakdown(orders.value, monthlyAdSpend.value, snapshots.value)
+                            YearlyRevenueBreakdown(orders.value, monthlyAdSpend.value)
                             MonthlyBarChart(orders.value)
                         }
 
                         Div({ style { property("height", "24px") } }) {}
                     }
+                }
+            }
+        }
+    }
+}
+
+// ── Onboarding Overlay ────────────────────────────────────────────────────────
+
+@Composable
+private fun OnboardingOverlay(s: AboutStrings, onDismiss: () -> Unit) {
+    var step by remember { mutableStateOf(0) }
+    val steps = listOf(
+        s.admOnbStep1Title to s.admOnbStep1Desc,
+        s.admOnbStep2Title to s.admOnbStep2Desc,
+        s.admOnbStep3Title to s.admOnbStep3Desc,
+        s.admOnbStep4Title to s.admOnbStep4Desc,
+        s.admOnbStep5Title to s.admOnbStep5Desc,
+    )
+    val total = steps.size
+    val (stepTitle, stepDesc) = steps[step]
+
+    Div({
+        style {
+            property("position", "fixed"); property("inset", "0"); property("z-index", "999999")
+            property("background", "rgba(0,0,0,0.75)")
+            property("display", "flex"); property("align-items", "center"); property("justify-content", "center")
+            property("backdrop-filter", "blur(6px)")
+            property("padding", "24px")
+        }
+    }) {
+        Div({
+            style {
+                property("background", SURFACE)
+                property("border", "1px solid rgba(255,255,255,0.14)")
+                property("border-radius", "20px")
+                property("padding", "40px 36px 32px")
+                property("max-width", "520px"); property("width", "100%")
+                property("box-shadow", "0 32px 80px rgba(0,0,0,0.55)")
+                property("display", "flex"); property("flex-direction", "column"); property("gap", "0")
+            }
+        }) {
+            // Header row
+            Div({
+                style {
+                    property("display", "flex"); property("align-items", "flex-start")
+                    property("justify-content", "space-between"); property("margin-bottom", "6px")
+                }
+            }) {
+                Div({}) {
+                    Div({
+                        style {
+                            property("font-size", "20px"); property("font-weight", "800")
+                            property("color", TEXT); property("letter-spacing", "-0.02em")
+                        }
+                    }) { Text(s.admOnbTitle) }
+                    Div({
+                        style { property("font-size", "13px"); property("color", SUB); property("margin-top", "4px") }
+                    }) { Text(s.admOnbSubtitle) }
+                }
+                Span({
+                    style {
+                        property("font-size", "12px"); property("color", SUB); property("cursor", "pointer")
+                        property("padding", "4px 8px"); property("border-radius", "6px")
+                        property("border", "1px solid rgba(255,255,255,0.12)")
+                        property("user-select", "none")
+                    }
+                    onClick { onDismiss() }
+                }) { Text(s.admOnbSkip) }
+            }
+
+            // Progress dots
+            Div({
+                style {
+                    property("display", "flex"); property("gap", "6px")
+                    property("margin-top", "20px"); property("margin-bottom", "28px")
+                }
+            }) {
+                for (i in 0 until total) {
+                    Div({
+                        style {
+                            property("height", "4px")
+                            property("border-radius", "999px")
+                            property("transition", "all 0.3s ease")
+                            if (i == step) {
+                                property("width", "28px")
+                                property("background", TEXT)
+                            } else {
+                                property("width", "12px")
+                                property("background", "rgba(255,255,255,0.18)")
+                            }
+                        }
+                    }) {}
+                }
+            }
+
+            // Step card
+            Div({
+                style {
+                    property("background", "rgba(255,255,255,0.04)")
+                    property("border", "1px solid rgba(255,255,255,0.09)")
+                    property("border-radius", "14px")
+                    property("padding", "24px")
+                    property("margin-bottom", "28px")
+                }
+            }) {
+                Div({
+                    style {
+                        property("font-size", "17px"); property("font-weight", "700")
+                        property("color", TEXT); property("margin-bottom", "12px")
+                    }
+                }) { Text(stepTitle) }
+                Div({
+                    style {
+                        property("font-size", "14px"); property("color", SUB)
+                        property("line-height", "1.65")
+                    }
+                }) { Text(stepDesc) }
+            }
+
+            // Step counter + buttons
+            Div({
+                style {
+                    property("display", "flex"); property("align-items", "center")
+                    property("justify-content", "space-between")
+                }
+            }) {
+                Div({
+                    style { property("font-size", "12px"); property("color", "rgba(255,255,255,0.3)") }
+                }) { Text("${step + 1} / $total") }
+
+                Div({
+                    style { property("display", "flex"); property("gap", "10px") }
+                }) {
+                    if (step > 0) {
+                        Div({
+                            style {
+                                property("padding", "9px 18px"); property("border-radius", "9px")
+                                property("font-size", "13px"); property("font-weight", "600")
+                                property("cursor", "pointer"); property("user-select", "none")
+                                property("background", "rgba(255,255,255,0.07)")
+                                property("color", TEXT)
+                                property("border", "1px solid rgba(255,255,255,0.12)")
+                            }
+                            onClick { step-- }
+                        }) { Text(s.admOnbBack) }
+                    }
+                    Div({
+                        style {
+                            property("padding", "9px 22px"); property("border-radius", "9px")
+                            property("font-size", "13px"); property("font-weight", "700")
+                            property("cursor", "pointer"); property("user-select", "none")
+                            property("background", "rgba(255,255,255,0.92)")
+                            property("color", "#111")
+                        }
+                        onClick { if (step < total - 1) step++ else onDismiss() }
+                    }) { Text(if (step < total - 1) s.admOnbNext else s.admOnbFinish) }
                 }
             }
         }
@@ -2975,7 +3284,7 @@ private fun DistributionChart(
     monthOrders: List<AdminOrder>,
     allOrders: List<AdminOrder>,
     monthlyAdSpend: Map<String, Double>,
-    snapshots: List<MonthlySnapshot>
+    filterMonth: String
 ) {
     val s = getStrings()
     data class Slice(val label: String, val value: Double, val color: String)
@@ -2994,15 +3303,15 @@ private fun DistributionChart(
     val tariff    = activeOrders.sumOf { it.tariffCost }
     val prodCost  = activeOrders.sumOf { it.productCost }
     val netProfit = activeOrders.sumOf { it.netProfit }
-    val snapshotAdByMonth = snapshots.associate { it.month to it.totalAdExpense }
     val adBudget  = if (period == "yearly") {
         (1..12).sumOf { m ->
             val key = "$currentYear-${m.toString().padStart(2, '0')}"
-            monthlyAdSpend[key] ?: snapshotAdByMonth[key] ?: 0.0
+            monthlyAdSpend[key] ?: 0.0
         }
     } else {
-        val key = "${Date().getFullYear()}-${(Date().getMonth() + 1).toString().padStart(2, '0')}"
-        monthlyAdSpend[key] ?: snapshotAdByMonth[key] ?: 0.0
+        val key = if (filterMonth != "all") filterMonth
+                  else "${Date().getFullYear()}-${(Date().getMonth() + 1).toString().padStart(2, '0')}"
+        monthlyAdSpend[key] ?: 0.0
     }
 
     val countryColors = mapOf("US" to "#d1d5db", "UK" to "#3b82f6", "EU" to "#10b981", "Canada" to "#ef4444", "Other" to "#94a3b8")
@@ -3480,8 +3789,7 @@ private fun AnalyticsView(orders: List<AdminOrder>) {
 @Composable
 private fun YearlyRevenueBreakdown(
     allOrders: List<AdminOrder>,
-    monthlyAdSpend: Map<String, Double>,
-    snapshots: List<MonthlySnapshot>
+    monthlyAdSpend: Map<String, Double>
 ) {
     if (allOrders.isEmpty()) return
     val s = getStrings()
@@ -3500,10 +3808,9 @@ private fun YearlyRevenueBreakdown(
     val ship   = yearOrders.sumOf { it.shippingCost }
     val prod   = yearOrders.sumOf { it.productCost }
     val tariff = yearOrders.sumOf { it.tariffCost }
-    val snapshotAdByMonth = snapshots.associate { it.month to it.totalAdExpense }
     val ads = (1..12).sumOf { m ->
         val key = "$currentYear-${m.toString().padStart(2, '0')}"
-        monthlyAdSpend[key] ?: snapshotAdByMonth[key] ?: 0.0
+        monthlyAdSpend[key] ?: 0.0
     }
 
     data class RowWithIcon(val label: String, val icon: String, val value: Double, val color: String)

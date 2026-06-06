@@ -140,18 +140,15 @@ fun AboutPage() {
                             property("text-decoration", "none")
                         }
                     }) {
-                        Div({
+                        Img(src = "/app.png") {
                             style {
                                 property("width", "30px")
                                 property("height", "30px")
                                 property("border-radius", "8px")
-                                background(AGRAD)
-                                display(DisplayStyle.Flex)
-                                alignItems(AlignItems.Center)
-                                justifyContent(JustifyContent.Center)
-                                property("font-size", "15px")
+                                property("object-fit", "cover")
                             }
-                        }) { Text("⚡") }
+                            attr("alt", "SellerScope")
+                        }
                         Span({
                             style {
                                 property("font-size", "17px")

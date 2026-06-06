@@ -229,6 +229,7 @@ private fun Map<String, String>.toAboutStrings(): AboutStrings {
         admPageTitle = s("admPageTitle"),
         admTopbarOrders = s("admTopbarOrders"),
         admTopbarAllMonths = s("admTopbarAllMonths"),
+        admTopbarAllYears = s("admTopbarAllYears"),
         admTopbarSignOut = s("admTopbarSignOut"),
         admNavLabel = s("admNavLabel"),
         admNavOrders = s("admNavOrders"),
@@ -270,6 +271,11 @@ private fun Map<String, String>.toAboutStrings(): AboutStrings {
         admClearAllDeleting = s("admClearAllDeleting"),
         admCsvOverlayTitle = s("admCsvOverlayTitle"),
         admCsvOverlayBody = s("admCsvOverlayBody"),
+        admCsvInfoTitle = s("admCsvInfoTitle"),
+        admCsvInfoBody = s("admCsvInfoBody"),
+        admCsvInfoRequired = s("admCsvInfoRequired"),
+        admCsvInfoOptional = s("admCsvInfoOptional"),
+        admCsvInfoContinue = s("admCsvInfoContinue"),
         admImportBtn = s("admImportBtn"),
         admImportingBtn = s("admImportingBtn"),
         admNewOrderBtn = s("admNewOrderBtn"),
@@ -511,6 +517,19 @@ private fun Map<String, String>.toAboutStrings(): AboutStrings {
         monthShortOct = s("monthShortOct"),
         monthShortNov = s("monthShortNov"),
         monthShortDec = s("monthShortDec"),
+
+        // ── Onboarding ───────────────────────────────────────────────────────
+        admOnbTitle = s("admOnbTitle"),
+        admOnbSubtitle = s("admOnbSubtitle"),
+        admOnbSkip = s("admOnbSkip"),
+        admOnbNext = s("admOnbNext"),
+        admOnbBack = s("admOnbBack"),
+        admOnbFinish = s("admOnbFinish"),
+        admOnbStep1Title = s("admOnbStep1Title"), admOnbStep1Desc = s("admOnbStep1Desc"),
+        admOnbStep2Title = s("admOnbStep2Title"), admOnbStep2Desc = s("admOnbStep2Desc"),
+        admOnbStep3Title = s("admOnbStep3Title"), admOnbStep3Desc = s("admOnbStep3Desc"),
+        admOnbStep4Title = s("admOnbStep4Title"), admOnbStep4Desc = s("admOnbStep4Desc"),
+        admOnbStep5Title = s("admOnbStep5Title"), admOnbStep5Desc = s("admOnbStep5Desc"),
     )
 }
 
