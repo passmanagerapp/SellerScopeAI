@@ -80,6 +80,45 @@ a { text-decoration: none; color: inherit; }
    <style>@layer reset, kobweb-compose, base, component-styles, component-variants, restricted-styles, general-styles;@media not all and (min-width: 0px) {  .silk-display-if-at-least-zero { display: none !important; }}@media (min-width: 0px) {  .silk-display-until-zero { display: none !important; }}@media not all and (min-width: 30rem) {  .silk-display-if-at-least-sm { display: none !important; }}@media (min-width: 30rem) {  .silk-display-until-sm { display: none !important; }}@media not all and (min-width: 48rem) {  .silk-display-if-at-least-md { display: none !important; }}@media (min-width: 48rem) {  .silk-display-until-md { display: none !important; }}@media not all and (min-width: 62rem) {  .silk-display-if-at-least-lg { display: none !important; }}@media (min-width: 62rem) {  .silk-display-until-lg { display: none !important; }}@media not all and (min-width: 80rem) {  .silk-display-if-at-least-xl { display: none !important; }}@media (min-width: 80rem) {  .silk-display-until-xl { display: none !important; }}</style>
    <div class="silk-surface silk-smooth-color kobweb-box kobweb-align-top-start" style="min-height: 100vh; width: 100%; justify-items: stretch;">
     <div style="position: fixed; inset: 0px; z-index: 9999; overflow-y: auto; background: rgb(13, 13, 13); font-family: Gelasio, Georgia, serif; color: rgb(240, 240, 240);">
+     <div style="position: fixed; inset: 0px; z-index: 999999; background: rgba(0, 0, 0, 0.75); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px); padding: 24px;">
+      <div style="background: rgb(26, 26, 26); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 20px; padding: 40px 36px 32px; max-width: 520px; width: 100%; box-shadow: rgba(0, 0, 0, 0.55) 0px 32px 80px; display: flex; flex-direction: column; gap: 0px;">
+       <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 6px;">
+        <div>
+         <div style="font-size: 20px; font-weight: 800; color: rgb(240, 240, 240); letter-spacing: -0.02em;">
+          Welcome! 👋
+         </div>
+         <div style="font-size: 13px; color: rgb(156, 163, 175); margin-top: 4px;">
+          Let's take a quick tour of each section.
+         </div>
+        </div><span style="font-size: 12px; color: rgb(156, 163, 175); cursor: pointer; padding: 4px 8px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.12); user-select: none;">Skip</span>
+       </div>
+       <div style="display: flex; gap: 6px; margin-top: 20px; margin-bottom: 28px;">
+        <div style="height: 4px; border-radius: 999px; transition: 0.3s; width: 28px; background: rgb(240, 240, 240);"></div>
+        <div style="height: 4px; border-radius: 999px; transition: 0.3s; width: 12px; background: rgba(255, 255, 255, 0.18);"></div>
+        <div style="height: 4px; border-radius: 999px; transition: 0.3s; width: 12px; background: rgba(255, 255, 255, 0.18);"></div>
+        <div style="height: 4px; border-radius: 999px; transition: 0.3s; width: 12px; background: rgba(255, 255, 255, 0.18);"></div>
+        <div style="height: 4px; border-radius: 999px; transition: 0.3s; width: 12px; background: rgba(255, 255, 255, 0.18);"></div>
+       </div>
+       <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 14px; padding: 24px; margin-bottom: 28px;">
+        <div style="font-size: 17px; font-weight: 700; color: rgb(240, 240, 240); margin-bottom: 12px;">
+         📦 Orders
+        </div>
+        <div style="font-size: 14px; color: rgb(156, 163, 175); line-height: 1.65;">
+         Your command center. Add orders manually or import via CSV. Edit, clone, or delete any order inline. The stat cards at the top show totals, profit and net profit for the selected month.
+        </div>
+       </div>
+       <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="font-size: 12px; color: rgba(255, 255, 255, 0.3);">
+         1 / 5
+        </div>
+        <div style="display: flex; gap: 10px;">
+         <div style="padding: 9px 22px; border-radius: 9px; font-size: 13px; font-weight: 700; cursor: pointer; user-select: none; background: rgba(255, 255, 255, 0.92); color: rgb(17, 17, 17);">
+          Next →
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
      <div style="background: rgb(20, 20, 20); border-bottom: 1px solid rgba(255, 255, 255, 0.18); padding: 0px 32px; height: 58px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0px; z-index: 100;">
       <div style="display: flex; align-items: center; gap: 12px;">
        <div style="background: rgba(255, 255, 255, 0.18); border-radius: 8px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 18px;">
@@ -96,7 +135,7 @@ a { text-decoration: none; color: inherit; }
        </div>
       </div>
       <div style="display: flex; align-items: center; gap: 12px;">
-       <select style="padding: 6px 10px; background: rgba(255, 255, 255, 0.12); color: white; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 7px; font-size: 13px; cursor: pointer; outline: none; font-family: inherit;"><option value="all">All months</option><option value="2026-06" selected>June 2026</option><option value="2026-05">May 2026</option><option value="2026-04">April 2026</option><option value="2026-03">March 2026</option><option value="2026-02">February 2026</option><option value="2026-01">January 2026</option><option value="2025-12">December 2025</option><option value="2025-11">November 2025</option><option value="2025-10">October 2025</option><option value="2025-09">September 2025</option><option value="2025-08">August 2025</option><option value="2025-07">July 2025</option></select><button style="background: rgba(255, 255, 255, 0.12); color: white; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 7px; padding: 6px 14px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit;">Sign Out</button>
+       <select style="padding: 6px 10px; background: rgba(255, 255, 255, 0.12); color: white; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 7px; font-size: 13px; cursor: pointer; outline: none; font-family: inherit;"><option value="2026" selected>2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option></select><select style="padding: 6px 10px; background: rgba(255, 255, 255, 0.12); color: white; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 7px; font-size: 13px; cursor: pointer; outline: none; font-family: inherit;"><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06" selected>June</option></select><button style="background: rgba(255, 255, 255, 0.12); color: white; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 7px; padding: 6px 14px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit;">Sign Out</button>
       </div>
      </div>
      <div style="display: flex; height: calc(-58px + 100vh); overflow: hidden;">

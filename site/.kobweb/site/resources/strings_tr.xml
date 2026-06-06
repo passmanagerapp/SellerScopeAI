@@ -70,10 +70,10 @@
     <string name="idxHeroSubtext">Siparişleri takip edin, kârları analiz edin, SKU ve kargoyu yönetin — büyüyen işletmeler için tasarlanmış tek bir güzel yönetim panelinde.</string>
     <string name="idxHeroPrimaryBtn">Ücretsiz Deneyin →</string>
     <string name="idxHeroSecondaryBtn">Canlı demo</string>
-    <string name="idxHeroTrustLine">Kredi kartı gerekmez  ·  14 günlük ücretsiz deneme  ·  İstediğiniz zaman iptal edin</string>
+    <string name="idxHeroTrustLine">Kredi kartı gerekmez  ·  İstediğiniz zaman iptal edin</string>
 
-    <string name="idxSocialProof1">500+ işletme</string>
-    <string name="idxSocialProof2">50.000+ yönetilen sipariş</string>
+    <string name="idxSocialProof1">1+ işletme</string>
+    <string name="idxSocialProof2">2.500+ yönetilen sipariş</string>
     <string name="idxSocialProof3">4,9 ★ ortalama puan</string>
     <string name="idxSocialProof4">%99,9 kesintisiz çalışma</string>
 
@@ -140,7 +140,7 @@
 
     <string name="idxFaqLabel">SSS</string>
     <string name="idxFaqTitle">Sık sorulan sorular</string>
-    <string name="idxFaqSubtitle">Aradığınızı bulamadınız mı? hello@sellerscope.io adresinden bize yazın</string>
+    <string name="idxFaqSubtitle">Aradığınızı bulamadınız mı? sellerscopeapp@gmail.com adresinden bize yazın</string>
     <string name="idxFaq1Q">Ücretsiz deneme nasıl çalışır?</string>
     <string name="idxFaq1A">14 gün boyunca Pro plana tam erişim elde edersiniz — kredi kartı gerekmez. Deneme süresinin sonunda bir plan seçebilir veya ücretsiz Başlangıç katmanında kalabilirsiniz.</string>
     <string name="idxFaq2Q">Mevcut siparişlerimi içe aktarabilir miyim?</string>
@@ -152,10 +152,10 @@
     <string name="idxFaq5Q">İstediğim zaman iptal edebilir miyim?</string>
     <string name="idxFaq5A">Kesinlikle. Aboneliğinizi hesap ayarlarından istediğiniz zaman iptal edebilirsiniz. Fatura döneminin sonuna kadar erişiminiz devam eder.</string>
     <string name="idxFaq6Q">Büyük ekipler için özel planlar sunuyor musunuz?</string>
-    <string name="idxFaq6A">Evet — hello@sellerscope.io adresinden bizimle iletişime geçin; sipariş hacminize ve ekip büyüklüğünüze göre özel bir teklif hazırlayalım.</string>
+    <string name="idxFaq6A">Evet — sellerscopeapp@gmail.com adresinden bizimle iletişime geçin; sipariş hacminize ve ekip büyüklüğünüze göre özel bir teklif hazırlayalım.</string>
 
     <string name="idxCtaTitle">Siparişlerinizin kontrolünü ele almaya hazır mısınız?</string>
-    <string name="idxCtaBody">SellerScope&apos;u zaten kullanan 500+ işletmeye katılın.</string>
+    <string name="idxCtaBody">SellerScope&apos;u zaten kullanan 1+ işletmeye katılın.</string>
     <string name="idxCtaBtn">Ücretsiz Başla →</string>
 
     <string name="idxFooterTagline">Büyüyen e-ticaret işletmeleri için geliştirilmiş sipariş yönetim panosu. Siparişleri, kârları ve kargoyu tek yerde takip edin.</string>
@@ -225,6 +225,7 @@
     <string name="admPageTitle">Panel — SellerScope</string>
     <string name="admTopbarOrders">Siparişler</string>
     <string name="admTopbarAllMonths">Tüm aylar</string>
+    <string name="admTopbarAllYears">Tüm yıllar</string>
     <string name="admTopbarSignOut">Çıkış Yap</string>
     <string name="admNavLabel">Navigasyon</string>
     <string name="admNavOrders">Siparişler</string>
@@ -269,6 +270,11 @@
 
     <string name="admCsvOverlayTitle">CSV içe aktarılıyor…</string>
     <string name="admCsvOverlayBody">Siparişler kaydediliyor. Lütfen bekleyin.</string>
+    <string name="admCsvInfoTitle">CSV Format Gereksinimleri</string>
+    <string name="admCsvInfoBody">CSV dosyanız aşağıdaki sütun başlıklarını içermelidir (büyük/küçük harf fark etmez):</string>
+    <string name="admCsvInfoRequired">zorunlu</string>
+    <string name="admCsvInfoOptional">isteğe bağlı</string>
+    <string name="admCsvInfoContinue">Devam Et</string>
     <string name="admImportBtn">CSV İçe Aktar</string>
     <string name="admImportingBtn">İçe aktarılıyor…</string>
     <string name="admNewOrderBtn">+ Yeni Sipariş</string>
@@ -533,4 +539,22 @@
     <string name="monthShortOct">Eki</string>
     <string name="monthShortNov">Kas</string>
     <string name="monthShortDec">Ara</string>
+
+    <!-- Onboarding -->
+    <string name="admOnbTitle">Hoş Geldiniz! 👋</string>
+    <string name="admOnbSubtitle">Her bölümü hızlıca tanıyalım.</string>
+    <string name="admOnbSkip">Atla</string>
+    <string name="admOnbNext">İleri →</string>
+    <string name="admOnbBack">← Geri</string>
+    <string name="admOnbFinish">Başlayalım! 🚀</string>
+    <string name="admOnbStep1Title">📦 Siparişler</string>
+    <string name="admOnbStep1Desc">Kontrol merkezin. Siparişleri manuel ekle ya da CSV ile içe aktar. Her siparişi düzenle, klonla veya sil. Üstteki stat kartları seçili ayın toplamlarını, brüt ve net kârını gösterir.</string>
+    <string name="admOnbStep2Title">🚚 Kargo Takibi</string>
+    <string name="admOnbStep2Desc">Her siparişin teslimat durumunu tek bakışta gör. Gecikmiş, Zamanında, Erken, Bekliyor ve Yapılandırılmamış olarak gruplanır. SKU bazlı teslimat günlerini Uygulama Ayarları&apos;ndan yapılandır.</string>
+    <string name="admOnbStep3Title">📊 Aylık Geçmiş</string>
+    <string name="admOnbStep3Desc">Ayı kapatmadan önce aylık finansal anlık görüntü kaydet. Net gelir, kargo, reklam gideri, gümrük vergisi ve ürün maliyetleri yakalanır. Geçmiş ayları özet tablosundan incele.</string>
+    <string name="admOnbStep4Title">📉 Zarar Takibi</string>
+    <string name="admOnbStep4Desc">İade, değişim, hasar veya diğer kayıpları kaydet. Her giriş neden, müşteri adı, SKU ve maliyet içerir — böylece gerçek kâr tablonun doğru kalır.</string>
+    <string name="admOnbStep5Title">⚙️ Uygulama Ayarları</string>
+    <string name="admOnbStep5Desc">Mağaza adı ve logonu ayarla. SKU&apos;ları ürün maliyeti ve tahmini teslimat günleriyle ekle — panel yeni sipariş eklerken maliyetleri otomatik doldurur ve gecikmeleri algılar.</string>
 </resources>

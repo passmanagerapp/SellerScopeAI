@@ -70,10 +70,10 @@
     <string name="idxHeroSubtext">Track orders, analyze profits, manage SKUs and shipping — all in one beautiful admin panel built for growing businesses.</string>
     <string name="idxHeroPrimaryBtn">Start Free Trial →</string>
     <string name="idxHeroSecondaryBtn">View live demo</string>
-    <string name="idxHeroTrustLine">No credit card required  ·  Free 14-day trial  ·  Cancel anytime</string>
+    <string name="idxHeroTrustLine">No credit card required  ·  Cancel anytime</string>
 
-    <string name="idxSocialProof1">500+ businesses</string>
-    <string name="idxSocialProof2">50,000+ orders managed</string>
+    <string name="idxSocialProof1">1+ businesses</string>
+    <string name="idxSocialProof2">2,500+ orders managed</string>
     <string name="idxSocialProof3">4.9 ★ average rating</string>
     <string name="idxSocialProof4">99.9% uptime</string>
 
@@ -140,7 +140,7 @@
 
     <string name="idxFaqLabel">FAQ</string>
     <string name="idxFaqTitle">Frequently asked questions</string>
-    <string name="idxFaqSubtitle">Can&apos;t find what you&apos;re looking for? Email us at hello@sellerscope.io</string>
+    <string name="idxFaqSubtitle">Can&apos;t find what you&apos;re looking for? Email us at sellerscopeapp@gmail.com</string>
     <string name="idxFaq1Q">How does the free trial work?</string>
     <string name="idxFaq1A">You get full access to the Pro plan for 14 days — no credit card required. At the end of the trial you can choose a plan or stay on the free Starter tier.</string>
     <string name="idxFaq2Q">Can I import my existing orders?</string>
@@ -152,10 +152,10 @@
     <string name="idxFaq5Q">Can I cancel anytime?</string>
     <string name="idxFaq5A">Absolutely. Cancel your subscription any time from your account settings. You&apos;ll retain access until the end of your billing period.</string>
     <string name="idxFaq6Q">Do you offer custom plans for large teams?</string>
-    <string name="idxFaq6A">Yes — contact us at hello@sellerscope.io and we&apos;ll put together a custom quote based on your order volume and team size.</string>
+    <string name="idxFaq6A">Yes — contact us at sellerscopeapp@gmail.com and we&apos;ll put together a custom quote based on your order volume and team size.</string>
 
     <string name="idxCtaTitle">Ready to take control of your orders?</string>
-    <string name="idxCtaBody">Join 500+ businesses already using SellerScope.</string>
+    <string name="idxCtaBody">Join 1+ businesses already using SellerScope.</string>
     <string name="idxCtaBtn">Get Started Free →</string>
 
     <string name="idxFooterTagline">The order management dashboard built for growing e-commerce businesses. Track orders, profits and shipping — all in one place.</string>
@@ -225,6 +225,7 @@
     <string name="admPageTitle">Dashboard — SellerScope</string>
     <string name="admTopbarOrders">Orders</string>
     <string name="admTopbarAllMonths">All months</string>
+    <string name="admTopbarAllYears">All years</string>
     <string name="admTopbarSignOut">Sign Out</string>
     <string name="admNavLabel">Navigation</string>
     <string name="admNavOrders">Orders</string>
@@ -269,6 +270,11 @@
 
     <string name="admCsvOverlayTitle">Importing CSV…</string>
     <string name="admCsvOverlayBody">Saving orders. Please wait.</string>
+    <string name="admCsvInfoTitle">CSV Format Requirements</string>
+    <string name="admCsvInfoBody">Your CSV file must contain the following column headers (case-insensitive):</string>
+    <string name="admCsvInfoRequired">required</string>
+    <string name="admCsvInfoOptional">optional</string>
+    <string name="admCsvInfoContinue">Continue</string>
     <string name="admImportBtn">Import CSV</string>
     <string name="admImportingBtn">Importing…</string>
     <string name="admNewOrderBtn">+ New Order</string>
@@ -532,4 +538,22 @@
     <string name="monthShortOct">Oct</string>
     <string name="monthShortNov">Nov</string>
     <string name="monthShortDec">Dec</string>
+
+    <!-- Onboarding -->
+    <string name="admOnbTitle">Welcome! 👋</string>
+    <string name="admOnbSubtitle">Let&apos;s take a quick tour of each section.</string>
+    <string name="admOnbSkip">Skip</string>
+    <string name="admOnbNext">Next →</string>
+    <string name="admOnbBack">← Back</string>
+    <string name="admOnbFinish">Let&apos;s go! 🚀</string>
+    <string name="admOnbStep1Title">📦 Orders</string>
+    <string name="admOnbStep1Desc">Your command center. Add orders manually or import via CSV. Edit, clone, or delete any order inline. The stat cards at the top show totals, profit and net profit for the selected month.</string>
+    <string name="admOnbStep2Title">🚚 Shipment Tracking</string>
+    <string name="admOnbStep2Desc">See every order&apos;s delivery status at a glance. Orders are grouped into Overdue, On Time, Early, Pending and Not Configured. Configure per-SKU delivery days in App Settings.</string>
+    <string name="admOnbStep3Title">📊 Monthly History</string>
+    <string name="admOnbStep3Desc">Save a monthly financial snapshot before closing the month. Captures net income, shipping costs, ad spend, tariffs and product costs. Review past months in the summary table.</string>
+    <string name="admOnbStep4Title">📉 Loss Tracker</string>
+    <string name="admOnbStep4Desc">Log refunds, replacements, damage or any other write-offs. Each entry records the reason, customer name, SKU and cost — keeping your real profit picture accurate.</string>
+    <string name="admOnbStep5Title">⚙️ App Settings</string>
+    <string name="admOnbStep5Desc">Set your shop name and logo. Add SKUs with their product cost and estimated delivery days — the panel auto-fills costs on new orders and detects late shipments.</string>
 </resources>
