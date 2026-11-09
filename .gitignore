@@ -1,6 +1,7 @@
 # Build artifacts
 build/
 .gradle/
+.kotlin/
 kotlin-js-store/
 .git-site-backup/
 

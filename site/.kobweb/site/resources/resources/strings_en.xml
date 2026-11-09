@@ -556,4 +556,28 @@
     <string name="admOnbStep4Desc">Log refunds, replacements, damage or any other write-offs. Each entry records the reason, customer name, SKU and cost — keeping your real profit picture accurate.</string>
     <string name="admOnbStep5Title">⚙️ App Settings</string>
     <string name="admOnbStep5Desc">Set your shop name and logo. Add SKUs with their product cost and estimated delivery days — the panel auto-fills costs on new orders and detects late shipments.</string>
+
+    <!-- Admin features ported from AhrarWood — read with tr("admin_…") -->
+    <string name="admin_integrations_shipentegra_title">ShipEntegra connection</string>
+    <string name="admin_integrations_shipentegra_desc">Connect your own ShipEntegra account with its API Client ID and Client Secret. Orders, labels, tracking and shipping costs will then sync from ShipEntegra automatically. The secret is verified with ShipEntegra, stored encrypted on our server and never shown again.</string>
+    <string name="admin_integrations_status_loading">Checking connection…</string>
+    <string name="admin_integrations_status_connected">Connected</string>
+    <string name="admin_integrations_status_disconnected">Not connected</string>
+    <string name="admin_integrations_updated_at">Last updated</string>
+    <string name="admin_integrations_client_id">Client ID</string>
+    <string name="admin_integrations_client_secret">Client Secret</string>
+    <string name="admin_integrations_client_secret_keep">Enter a new secret to change it</string>
+    <string name="admin_integrations_connect">Connect and verify</string>
+    <string name="admin_integrations_update">Update credentials</string>
+    <string name="admin_integrations_disconnect">Disconnect</string>
+    <string name="admin_integrations_disconnect_confirm">Disconnect ShipEntegra? Automatic sync stops until you connect again.</string>
+    <string name="admin_integrations_saving">Verifying…</string>
+    <string name="admin_integrations_saved">ShipEntegra connected.</string>
+    <string name="admin_integrations_disconnected_msg">ShipEntegra disconnected.</string>
+    <string name="admin_integrations_err_required">Enter both the Client ID and the Client Secret.</string>
+    <string name="admin_integrations_err_invalid">ShipEntegra rejected these credentials. Check the Client ID and Client Secret.</string>
+    <string name="admin_integrations_err_upstream">ShipEntegra could not be reached right now. Nothing was saved — try again in a minute.</string>
+    <string name="admin_integrations_err_server">The server is not ready for integrations yet.</string>
+    <string name="admin_integrations_err_auth">Your session has expired. Please sign in again.</string>
+    <string name="admin_integrations_err_network">Could not reach the SellerScope server.</string>
 </resources>

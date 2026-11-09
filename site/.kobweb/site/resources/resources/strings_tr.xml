@@ -557,4 +557,28 @@
     <string name="admOnbStep4Desc">İade, değişim, hasar veya diğer kayıpları kaydet. Her giriş neden, müşteri adı, SKU ve maliyet içerir — böylece gerçek kâr tablonun doğru kalır.</string>
     <string name="admOnbStep5Title">⚙️ Uygulama Ayarları</string>
     <string name="admOnbStep5Desc">Mağaza adı ve logonu ayarla. SKU&apos;ları ürün maliyeti ve tahmini teslimat günleriyle ekle — panel yeni sipariş eklerken maliyetleri otomatik doldurur ve gecikmeleri algılar.</string>
+
+    <!-- Admin features ported from AhrarWood — read with tr("admin_…") -->
+    <string name="admin_integrations_shipentegra_title">ShipEntegra bağlantısı</string>
+    <string name="admin_integrations_shipentegra_desc">Kendi ShipEntegra hesabını API Client ID ve Client Secret bilgileriyle bağla. Siparişler, etiketler, kargo takibi ve kargo maliyetleri ShipEntegra&apos;dan otomatik senkronize edilir. Secret ShipEntegra ile doğrulanır, sunucumuzda şifreli saklanır ve bir daha gösterilmez.</string>
+    <string name="admin_integrations_status_loading">Bağlantı kontrol ediliyor…</string>
+    <string name="admin_integrations_status_connected">Bağlı</string>
+    <string name="admin_integrations_status_disconnected">Bağlı değil</string>
+    <string name="admin_integrations_updated_at">Son güncelleme</string>
+    <string name="admin_integrations_client_id">Client ID</string>
+    <string name="admin_integrations_client_secret">Client Secret</string>
+    <string name="admin_integrations_client_secret_keep">Değiştirmek için yeni secret gir</string>
+    <string name="admin_integrations_connect">Bağlan ve doğrula</string>
+    <string name="admin_integrations_update">Bilgileri güncelle</string>
+    <string name="admin_integrations_disconnect">Bağlantıyı kes</string>
+    <string name="admin_integrations_disconnect_confirm">ShipEntegra bağlantısı kesilsin mi? Yeniden bağlayana kadar otomatik senkronizasyon durur.</string>
+    <string name="admin_integrations_saving">Doğrulanıyor…</string>
+    <string name="admin_integrations_saved">ShipEntegra bağlandı.</string>
+    <string name="admin_integrations_disconnected_msg">ShipEntegra bağlantısı kesildi.</string>
+    <string name="admin_integrations_err_required">Client ID ve Client Secret alanlarının ikisini de doldur.</string>
+    <string name="admin_integrations_err_invalid">ShipEntegra bu bilgileri reddetti. Client ID ve Client Secret&apos;ı kontrol et.</string>
+    <string name="admin_integrations_err_upstream">Şu an ShipEntegra&apos;ya ulaşılamıyor. Hiçbir şey kaydedilmedi — bir dakika sonra tekrar dene.</string>
+    <string name="admin_integrations_err_server">Sunucu entegrasyonlar için henüz hazır değil.</string>
+    <string name="admin_integrations_err_auth">Oturumun sona erdi. Lütfen tekrar giriş yap.</string>
+    <string name="admin_integrations_err_network">SellerScope sunucusuna ulaşılamadı.</string>
 </resources>

@@ -31,6 +31,7 @@ import org.jetbrains.compose.web.attributes.value
 import org.jetbrains.compose.web.dom.*
 import com.orderpanel.strings.AboutStrings
 import com.orderpanel.strings.getStrings
+import com.orderpanel.pages.admin.*
 import com.varabyte.kobweb.compose.style.KobwebComposeStyleSheet.attr
 
 
@@ -41,63 +42,6 @@ private const val FS_SNAPSHOTS_COL = "monthly_snapshots"
 private const val FS_LOSSES_COL    = "losses"
 private const val DAILY_AD_BUDGET  = 19.5
 
-// ── Model ─────────────────────────────────────────────────────────────────────
-
-@Serializable
-data class AdminOrder(
-    val id: String             = "",
-    val orderDate: String      = "",
-    val orderQuantity: Int     = 1,
-    val receiverName: String   = "",
-    val trackingNumber: String = "",
-    val shippingDate: String   = "",
-    val country: String        = "Other",
-    val customValue: Double    = 0.0,
-    val profit: Double         = 0.0,
-    val shippingCost: Double   = 0.0,
-    val tariffCost: Double     = 0.0,
-    val productCost: Double    = 0.0,
-    val netProfit: Double      = 0.0,
-    val status: String         = "Processing",
-    val sku: String            = "",
-    val cargoCompany: String   = ""
-)
-
-@Serializable
-data class SkuConfig(
-    val skus: Map<String, Double> = emptyMap(),
-    val shopName: String    = "",
-    val shopLogoUrl: String = "",
-    val skuDeliveryDays: Map<String, Int> = emptyMap(),
-    val monthlyAdSpend: Map<String, Double> = emptyMap()
-)
-
-@Serializable
-data class MonthlySnapshot(
-    val month: String = "",
-    val orderCount: Int = 0,
-    val totalShippingCost: Double = 0.0,
-    val totalTariffCost: Double = 0.0,
-    val totalAdExpense: Double = 0.0,
-    val totalNetIncome: Double = 0.0,
-    val crossFit: Double = 0.0,
-    val totalProductCost: Double = 0.0,
-    val countryBreakdown: Map<String, Int> = emptyMap(),
-    val skuBreakdown: Map<String, Int> = emptyMap()
-)
-
-@Serializable
-data class LossEntry(
-    val id: String     = "",
-    val date: String   = "",
-    val reason: String = "",
-    val name: String   = "",
-    val sku: String    = "",
-    val cost: Double   = 0.0
-)
-
-@Serializable
-data class EncryptedPayload(val enc: String = "")
 
 private val coder = KJson { ignoreUnknownKeys = true }
 
@@ -2649,6 +2593,9 @@ private fun AppInfoTab(
         Div({ style { property("font-size", "20px"); property("font-weight", "800"); property("letter-spacing", "-0.02em") } }) {
             Text(s.admAppInfoTitle)
         }
+
+        // ── ShipEntegra connection (per-user credentials, server-side) ────
+        ShipEntegraConnectionCard()
 
         // ── Shop Profile card ─────────────────────────────────────────────
         Div({

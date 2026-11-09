@@ -540,11 +540,25 @@ private fun loadXml(fileName: String): String? = try {
     if (xhr.status == 200.toShort()) xhr.responseText else null
 } catch (_: Throwable) { null }
 
+private fun localeFileName(): String =
+    if (window.navigator.language.startsWith("tr", ignoreCase = true)) "strings_tr.xml" else "strings_en.xml"
+
+private val rawCache = mutableMapOf<String, Map<String, String>>()
+
+private fun rawStrings(fileName: String): Map<String, String> =
+    rawCache.getOrPut(fileName) { parseXml(loadXml(fileName) ?: "") }
+
 fun getStrings(): AboutStrings {
-    val lang = window.navigator.language
-    val fileName = if (lang.startsWith("tr", ignoreCase = true)) "strings_tr.xml" else "strings_en.xml"
-    return cache.getOrPut(fileName) {
-        val xml = loadXml(fileName)
-        parseXml(xml ?: "").toAboutStrings()
-    }
+    val fileName = localeFileName()
+    return cache.getOrPut(fileName) { rawStrings(fileName).toAboutStrings() }
 }
+
+/**
+ * One string by its XML key, for the admin features ported from AhrarWood (keys prefixed `admin_`, kept
+ * identical to AhrarWood's so they can be compared). Falls back to English, then to the key itself so a
+ * missing translation is visible instead of blank. Prefer this over growing [AboutStrings].
+ */
+fun tr(key: String): String =
+    rawStrings(localeFileName())[key]?.takeIf { it.isNotEmpty() }
+        ?: rawStrings("strings_en.xml")[key]?.takeIf { it.isNotEmpty() }
+        ?: key
