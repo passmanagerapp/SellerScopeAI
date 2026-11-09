@@ -19,7 +19,7 @@ kobweb {
 }
 
 kotlin {
-    configAsKobwebApplication("orderpanel")
+    configAsKobwebApplication("orderpanel", includeServer = true)
     sourceSets {
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -33,6 +33,12 @@ kotlin {
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
             implementation("dev.gitlive:firebase-firestore:2.1.0")
             implementation(npm("firebase", "10.12.2"))
+        }
+
+        // Kobweb server endpoints (`jvmMain/.../api/`). The API is provided by the Kobweb server
+        // jar at runtime, so it is compileOnly — no transitive deps reach the server.
+        jvmMain.dependencies {
+            compileOnly(libs.kobweb.api)
         }
     }
 }

@@ -7,6 +7,9 @@ kotlin-js-store/
 # Kobweb server jar and logs
 site/.kobweb/server/server.jar
 site/.kobweb/server/logs/
+site/.kobweb/server/state.yaml
+# API jar is built by the Dockerfile; the export's copy is never committed
+site/.kobweb/site/system/*.jar
 
 # IntelliJ IDEA
 .idea/
@@ -16,5 +19,3 @@ site/.kobweb/server/logs/
 # OS
 .DS_Store
 
-# Local Firebase config
-site/src/jsMain/kotlin/com/orderpanel/firebase/FirebaseConfig.kt

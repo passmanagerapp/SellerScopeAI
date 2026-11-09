@@ -8,8 +8,20 @@ server:
     dev:
       contentRoot: "build/processedResources/js/main/public"
       script: "build/kotlin-webpack/js/developmentExecutable/orderpanel.js"
+      api: "build/libs/orderpanel.jar"
     prod:
       script: "build/kotlin-webpack/js/productionExecutable/orderpanel.js"
       siteRoot: ".kobweb/site"
+      api: ".kobweb/server/orderpanel.jar"
 
-  port: 8081
+  cors:
+    hosts:
+      - name: "sellerscopeai.app"
+        schemes:
+          - "https"
+        subdomains:
+          - "www"
+
+  # Railway injects $PORT; entrypoint.sh rewrites this line at container start.
+  port: 8080
+  host: "0.0.0.0"

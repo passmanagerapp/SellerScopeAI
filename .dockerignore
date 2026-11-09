@@ -1,0 +1,7 @@
+.git
+.gradle
+**/build
+kotlin-js-store
+docs
+site/docs
+.idea

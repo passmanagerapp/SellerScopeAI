@@ -1,0 +1,31 @@
+rules_version = '2';
+
+// SellerScope is multi-tenant: every user's data lives under users/{uid}/... and only that signed-in
+// user may touch it. The server (crons, ShipEntegra proxies) uses a service account, which bypasses
+// these rules. users/{uid}/private/** holds server-encrypted third-party credentials (ShipEntegra,
+// Gmail) — the browser never reads or writes it; the server does, via /api/integrations-*.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+
+      match /private/{document=**} {
+        allow read, write: if false;
+      }
+
+      match /{collection}/{document=**} {
+        allow read, write: if isOwner(uid) && collection != 'private';
+      }
+    }
+
+    // Everything else is closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

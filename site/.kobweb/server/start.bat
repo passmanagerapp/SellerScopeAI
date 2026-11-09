@@ -12,4 +12,4 @@ if defined KOBWEB_JAVA_HOME (
     set "java_cmd=java"
 )
 
-"%java_cmd%" -Dkobweb.server.environment=PROD -Dkobweb.site.layout=STATIC -Dio.ktor.development=false -jar .kobweb/server/server.jar
+"%java_cmd%" -Dkobweb.server.environment=PROD -Dkobweb.site.layout=FULLSTACK -Dio.ktor.development=false -jar .kobweb/server/server.jar
